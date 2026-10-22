@@ -186,26 +186,20 @@ def record_body_bytes(data):
     "code": value  # TODO map to string from table 42-1
   }
 
-  value = data.next()[0] & 0b0111111111111111
-  out["event_assertion_mask"] = [bool(value & (1 << i)) for i in reversed(range(16))]
+  values = data.next(2)
+  value = ((values[1] & 0b01111111) << 8) | values[0]
+  mask = [bool(value & (1 << i)) for i in reversed(range(16))]
+  out["threshold_assertion_mask"] = mask
 
-  value = data.next(2)[0] & 0b0111111111111111
-  out["threshold_assertion_mask"] = [bool(value & (1 << i)) for i in reversed(range(16))]
+  values = data.next(2)
+  value = ((values[1] & 0b01111111) << 8) | values[0]
+  mask = [bool(value & (1 << i)) for i in reversed(range(16))]
+  out["threshold_deassertion_mask"] = mask
 
-  value = data.next(2)[0] & 0b0111111111111111
-  out["event_deassertion_mask"] = [bool(value & (1 << i)) for i in reversed(range(16))]
-
-  value = data.next(2)[0] & 0b0111111111111111
-  out["threshold_deassertion_mask"] = [bool(value & (1 << i)) for i in reversed(range(16))]
-
-  value = data.next(2)[0] & 0b0111111111111111
-  out["discrete_reading_mask"] = [bool(value & (1 << i)) for i in reversed(range(16))]
-
-  value = data.next()[0] & 0b00111111
-  out["threshold_settable_mask"] = [bool(value & (1 << i)) for i in reversed(range(8))]
-
-  value = data.next()[0] & 0b00111111
-  out["threshold_readable_mask"] = [bool(value & (1 << i)) for i in reversed(range(8))]
+  values = data.next(2)
+  value = ((values[1] & 0b01111111) << 8) | values[0]
+  mask = [bool(value & (1 << i)) for i in reversed(range(16))]
+  out["threshold_readable_mask"] = mask
 
   value = data.next()[0]
   format_value = value >> 6
@@ -372,7 +366,7 @@ def record_body_bytes(data):
 
   str_length = value & 0b00011111
   if not str_length in [0, 31]:
-    str_bytes = data.read(str_length)
+    str_bytes = data.next(str_length)
 
     if fmt == "unicode":
       device_id = decode_unicode(str_bytes)
