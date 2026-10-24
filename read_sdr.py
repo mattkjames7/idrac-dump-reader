@@ -169,8 +169,8 @@ def record_body_bytes(data):
     "global_disable": mess_value <= 2
   }
   out["capabilities"] = {
-    "ignore": value & 0b00000000,
-    "auto_rearm": value & 0b00000000,
+    "ignore": bool((value & 0b10000000) >> 7),
+    "auto_rearm": bool((value & 0b01000000) >> 6),
     "hysteresis": hysteresis,
     "threshold_access": threshold,
     "messages": messages
@@ -289,7 +289,7 @@ def record_body_bytes(data):
   out["b"] = b_raw - 512 if (b_raw & 0x200) else b_raw
   accuracy_ls = value[1] & 0b00111111
   value = data.next()[0]
-  accuracy_ms = (value >> 4) << 8
+  accuracy_ms = (value >> 4) << 6
   out["accuracy"] = accuracy_ms | accuracy_ls
   out["accuracy_exp"] = (value & 0b00001100) >> 2
   direction_code = (value & 0b00000011)
@@ -304,9 +304,14 @@ def record_body_bytes(data):
     "value": direction_value
   }
 
+  def signed_nibble(value):
+    value = value & 0b1111
+    out = value - 16 if value & 0b1000 else value
+    return out 
+
   value = data.next()[0]
-  out["r_exp"] = (value >> 4) - 0b1000
-  out["b_exp"] = (value & 0b00001111) - 0b1000
+  out["r_exp"] = signed_nibble(value >> 4)
+  out["b_exp"] = signed_nibble(value)
 
   # analog characteristics
   value = data.next()[0]
@@ -353,7 +358,7 @@ def record_body_bytes(data):
   value = data.next()[0]
   out["negative-going_threshold_hysteresis_value"] = value
 
-  _ = data.next(3)  # reserved values
+  _ = data.next(3)  # 2 reserved values + OEM value
 
   value = data.next()[0]
   fmt_code = (value & 0b11000000) >> 6
