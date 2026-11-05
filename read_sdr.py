@@ -204,7 +204,7 @@ def event_reading_type(code):
   return {"category": "reserved", "class": "reserved"}
 
 
-def record_body_bytes(data):
+def full_sensor_record_body_bytes(data):
 
   out = {}
   out["id"] = data.next()[0]
@@ -298,8 +298,8 @@ def record_body_bytes(data):
   format_value = value >> 6
   format_name = {
     0: "unsigned",
-    1: "signed, 1's compliment",
-    2: "signed, 2's compliment",
+    1: "signed, 1's complement",
+    2: "signed, 2's complement",
     3: "not numeric"
   }[format_value]
 
@@ -366,7 +366,6 @@ def record_body_bytes(data):
   else:
       linearization = "reserved"
   out["linearization"] = linearization
-  print(linearization)
 
   value = data.next(2)  # is 10 bit signed + tolerance
   m_lsb = value[0]
@@ -461,10 +460,20 @@ def record_body_bytes(data):
     2: "6-bit-ascii",
     3: "8-bit-ascii"
   }[fmt_code]
+  out["device_id_fmt"] = fmt
 
   str_length = value & 0b00011111
+  if fmt == "unicode":
+    byte_length = str_length * 2
+  elif fmt == "bcd-plus":
+    byte_length = (str_length + 1) // 2
+  elif fmt == "6-bit-ascii":
+    byte_length = (str_length * 6 + 7) // 8
+  else:
+    byte_length = str_length
+
   if not str_length in [0, 31]:
-    str_bytes = data.next(str_length)
+    str_bytes = data.next(byte_length)
 
     if fmt == "unicode":
       device_id = decode_unicode(str_bytes)
@@ -476,6 +485,7 @@ def record_body_bytes(data):
       device_id = decode_8bit_ascii(str_bytes)
 
     out["device_id"] = device_id
+
 
   return out
 
@@ -493,8 +503,8 @@ def main():
         break
       record.update(read_record_key_bytes(record_data))
       if record["record_type"] == 1:
-        record.update(record_body_bytes(record_data))
-      print(record)
+        record.update(full_sensor_record_body_bytes(record_data))
+        print(record.get("device_id"), record.get("device_id_fmt"))
     except StopIteration:
       break
 
