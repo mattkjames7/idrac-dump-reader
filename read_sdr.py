@@ -204,6 +204,105 @@ def event_reading_type(code):
   return {"category": "reserved", "class": "reserved"}
 
 
+def get_sensor_unit_type(code):
+
+  units = {
+    0: "unspecified",
+    1: "degrees C",
+    2: "degrees F",
+    3: "degrees K",
+    4: "Volts",
+    5: "Amps",
+    6: "Watts",
+    7: "Joules",
+    8: "Coulombs",
+    9: "VA",
+    10: "Nits",
+    11: "lumen",
+    12: "lux",
+    13: "Candela",
+    14: "kPa",
+    15: "PSI",
+    16: "Newton",
+    17: "CFM",
+    18: "RPM",
+    19: "Hz",
+    20: "microsecond",
+    21: "millisecond",
+    22: "second",
+    23: "minute",
+    24: "hour",
+    25: "day",
+    26: "week",
+    27: "mil",
+    28: "inches",
+    29: "feet",
+    30: "cu in",
+    31: "cu feet",
+    32: "mm",
+    33: "cm",
+    34: "m",
+    35: "cu cm",
+    36: "cu m",
+    37: "liters",
+    38: "fluid ounce",
+    39: "radians",
+    40: "steradians",
+    41: "revolutions",
+    42: "cycles",
+    43: "gravities",
+    44: "ounce",
+    45: "pound",
+    46: "ft-lb",
+    47: "oz-in",
+    48: "gauss",
+    49: "gilberts",
+    50: "henry",
+    51: "millihenry",
+    52: "farad",
+    53: "microfarad",
+    54: "ohms",
+    55: "siemens",
+    56: "mole",
+    57: "becquerel",
+    58: "PPM (parts/million)",
+    60: "Decibels",
+    61: "DbA",
+    62: "DbC",
+    63: "gray",
+    64: "sievert",
+    65: "color temp deg K",
+    66: "bit",
+    67: "kilobit",
+    68: "megabit",
+    69: "gigabit",
+    70: "byte",
+    71: "kilobyte",
+    72: "megabyte",
+    73: "gigabyte",
+    74: "word (data)",
+    75: "dword",
+    76: "qword",
+    77: "line (re. mem. line)",
+    78: "hit",
+    79: "miss",
+    80: "retry",
+    81: "reset",
+    82: "overrun / overflow",
+    83: "underrun",
+    84: "collision",
+    85: "packets",
+    86: "messages",
+    87: "characters",
+    88: "error",
+    89: "correctable error",
+    90: "uncorrectable error",
+    91: "fatal error",
+    92: "grams",
+  }
+  return units.get(code, None)
+
+
 def full_sensor_record_body_bytes(data):
 
   out = {}
@@ -339,7 +438,7 @@ def full_sensor_record_body_bytes(data):
     "percentage": bool(value & 0b00000001)
   }
 
-  out["base_unit"] = data.next()[0]  # TODO: table 43-15
+  out["base_unit"] = get_sensor_unit_type(data.next(1)[0])
   out["modifier_unit"] = data.next()[0]
 
   LINEARIZATION = {
@@ -504,7 +603,7 @@ def main():
       record.update(read_record_key_bytes(record_data))
       if record["record_type"] == 1:
         record.update(full_sensor_record_body_bytes(record_data))
-        print(record.get("device_id"), record.get("device_id_fmt"))
+        print(record.get("device_id"), record.get("device_id_fmt"), record)
     except StopIteration:
       break
 
