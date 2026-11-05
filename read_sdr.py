@@ -123,6 +123,87 @@ def read_record_key_bytes(data):
   return out
 
 
+def read_u16(data):
+  low, high = data.next(2)
+  return low | (high << 8)
+
+
+def int_to_bool_array(value, length):
+  return [bool(value & (1 << i)) for i in reversed(range(length))]
+
+
+def sensor_type(code):
+  sensor_types = {
+    0x00: "reserved",
+    0x01: "temperature",
+    0x02: "voltage",
+    0x03: "current",
+    0x04: "fan",
+    0x05: "physical security",
+    0x06: "platform security violation attempt",
+    0x07: "processor",
+    0x08: "power supply",
+    0x09: "power unit",
+    0x0a: "cooling device",
+    0x0b: "other units-based sensor",
+    0x0c: "memory",
+    0x0d: "drive slot/bay",
+    0x0e: "post memory resize",
+    0x0f: "system firmware progress",
+    0x10: "event logging disabled",
+    0x11: "watchdog 1",
+    0x12: "system event",
+    0x13: "critical interrupt",
+    0x14: "button/switch",
+    0x15: "module/board",
+    0x16: "microcontroller/coprocessor",
+    0x17: "add-in card",
+    0x18: "chassis",
+    0x19: "chip set",
+    0x1a: "other fru",
+    0x1b: "cable/interconnect",
+    0x1c: "terminator",
+    0x1d: "system boot/restart initiated",
+    0x1e: "boot error",
+    0x1f: "base os boot/installation status",
+    0x20: "os stop/shutdown",
+    0x21: "slot/connector",
+    0x22: "system acpi power state",
+    0x23: "watchdog 2",
+    0x24: "platform alert",
+    0x25: "entity presence",
+    0x26: "monitor asic/ic",
+    0x27: "lan",
+    0x28: "management subsystem health",
+    0x29: "battery",
+    0x2a: "session audit",
+    0x2b: "version change",
+    0x2c: "fru state",
+  }
+
+  if code in sensor_types:
+    return sensor_types[code]
+  if 0xc0 <= code <= 0xff:
+    return "oem reserved"
+  return "reserved"
+
+
+def event_reading_type(code):
+  event_reading_types = {
+    0x00: {"category": "unspecified", "class": "n/a"},
+    0x01: {"category": "threshold", "class": "threshold"},
+    0x6f: {"category": "sensor-specific", "class": "discrete"},
+  }
+
+  if code in event_reading_types:
+    return event_reading_types[code].copy()
+  if 0x02 <= code <= 0x0c:
+    return {"category": "generic", "class": "discrete"}
+  if 0x70 <= code <= 0x7f:
+    return {"category": "oem", "class": "oem"}
+  return {"category": "reserved", "class": "reserved"}
+
+
 def record_body_bytes(data):
 
   out = {}
@@ -178,28 +259,40 @@ def record_body_bytes(data):
 
   value = data.next()[0]
   out["type"] = {
-    "code": value  # TODO map to string table 42-3
+    "code": sensor_type(value)
   }
 
   value = data.next()[0]
   out["reading_type"] = {
-    "code": value  # TODO map to string from table 42-1
+    "code": value,
+    **event_reading_type(value)
   }
 
-  values = data.next(2)
-  value = ((values[1] & 0b01111111) << 8) | values[0]
-  mask = [bool(value & (1 << i)) for i in reversed(range(16))]
-  out["threshold_assertion_mask"] = mask
+  is_threshold_based = out["reading_type"]["class"] == "threshold"
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
 
-  values = data.next(2)
-  value = ((values[1] & 0b01111111) << 8) | values[0]
-  mask = [bool(value & (1 << i)) for i in reversed(range(16))]
-  out["threshold_deassertion_mask"] = mask
+  if is_threshold_based:
+    out["lower_threshold_reading_mask"] = mask[1:4]
+    out["threshold_assertion_mask"] = mask[4:]
+  else:
+    out["assertion_event_mask"] = mask[1:]
 
-  values = data.next(2)
-  value = ((values[1] & 0b01111111) << 8) | values[0]
-  mask = [bool(value & (1 << i)) for i in reversed(range(16))]
-  out["threshold_readable_mask"] = mask
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+  if is_threshold_based:
+    out["upper_threshold_reading_mask"] = mask[1:4]
+    out["threshold_deassertion_mask"] = mask[4:]
+  else:
+    out["deassertion_event_mask"] = mask[1:]
+
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+  if is_threshold_based:
+    out["settable_threshold_mask"] = mask[2:8]
+    out["threshold_readable_mask"] = mask[10:]
+  else:
+    out["read_mask"] = mask[1:]
 
   value = data.next()[0]
   format_value = value >> 6
@@ -307,7 +400,7 @@ def record_body_bytes(data):
   def signed_nibble(value):
     value = value & 0b1111
     out = value - 16 if value & 0b1000 else value
-    return out 
+    return out
 
   value = data.next()[0]
   out["r_exp"] = signed_nibble(value >> 4)
