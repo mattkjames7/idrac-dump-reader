@@ -303,6 +303,91 @@ def get_sensor_unit_type(code):
   return units.get(code, None)
 
 
+def get_sensor_capabilities(value):
+
+  hyst_value = (value & 0b00110000) >> 4
+  hysteresis = {
+    "supported": hyst_value != 0,
+    "readable": hyst_value in [1, 2],
+    "settable": hyst_value == 2,
+    "fixed": hyst_value == 3
+  }
+  thresh_value = (value & 0b00001100) >> 2
+  threshold = {
+    "supported": thresh_value != 0,
+    "readable": thresh_value in (1, 2),
+    "settable": thresh_value == 2,
+    "fixed": thresh_value == 3
+  }
+  mess_value = (value & 0b00000011)
+  messages = {
+    "per_threshold": mess_value == 0,
+    "entire_sensor": mess_value <= 1,
+    "global_disable": mess_value <= 2
+  }
+  out = {
+    "ignore": bool((value & 0b10000000) >> 7),
+    "auto_rearm": bool((value & 0b01000000) >> 6),
+    "hysteresis": hysteresis,
+    "threshold_access": threshold,
+    "messages": messages
+  }
+  return out
+
+
+def get_sensor_units(values):
+
+  out = {}
+
+  format_value = values[0] >> 6
+  format_name = {
+    0: "unsigned",
+    1: "signed, 1's complement",
+    2: "signed, 2's complement",
+    3: "not numeric"
+  }[format_value]
+
+  rate_value = (values[0] & 0b00111111) >> 3
+  rate_unit = {
+    0: None,
+    1: "μs",
+    2: "ms",
+    3: "s",
+    4: "minute",
+    5: "hour",
+    6: "day",
+    7: "reserved"
+  }[rate_value]
+
+  mod_value = (values[0] & 0b00000110) >> 1
+  mod_unit = {
+    0: None,
+    1: "divide",
+    2: "times",
+    3: "reserved"
+  }[mod_value]
+
+  out["units"] = {
+    "format": {
+      "code": format_value,
+      "name": format_name
+    },
+    "rate": {
+      "code": rate_value,
+      "unit": rate_unit
+    },
+    "modifier": {
+      "code": mod_value,
+      "unit": mod_unit
+    },
+    "percentage": bool(values[0] & 0b00000001)
+  }
+
+  out["base_unit"] = get_sensor_unit_type(values[1])
+  out["modifier_unit"] = values[2]
+  return out
+
+
 def full_sensor_record_body_bytes(data):
 
   out = {}
@@ -327,34 +412,7 @@ def full_sensor_record_body_bytes(data):
   }
 
   value = data.next()[0]
-
-  hyst_value = (value & 0b00110000) >> 4
-  hysteresis = {
-    "supported": hyst_value != 0,
-    "readable": hyst_value in [1, 2],
-    "settable": hyst_value == 2,
-    "fixed": hyst_value == 3
-  }
-  thresh_value = (value & 0b00001100) >> 2
-  threshold = {
-    "supported": thresh_value != 0,
-    "readable": thresh_value in (1, 2),
-    "settable": thresh_value == 2,
-    "fixed": thresh_value == 3
-  }
-  mess_value = (value & 0b00000011)
-  messages = {
-    "per_threshold": mess_value == 0,
-    "entire_sensor": mess_value <= 1,
-    "global_disable": mess_value <= 2
-  }
-  out["capabilities"] = {
-    "ignore": bool((value & 0b10000000) >> 7),
-    "auto_rearm": bool((value & 0b01000000) >> 6),
-    "hysteresis": hysteresis,
-    "threshold_access": threshold,
-    "messages": messages
-  }
+  out["capabilities"] = get_sensor_capabilities(value)
 
   value = data.next()[0]
   out["type"] = {
@@ -393,53 +451,8 @@ def full_sensor_record_body_bytes(data):
   else:
     out["read_mask"] = mask[1:]
 
-  value = data.next()[0]
-  format_value = value >> 6
-  format_name = {
-    0: "unsigned",
-    1: "signed, 1's complement",
-    2: "signed, 2's complement",
-    3: "not numeric"
-  }[format_value]
-
-  rate_value = (value & 0b00111111) >> 3
-  rate_unit = {
-    0: None,
-    1: "μs",
-    2: "ms",
-    3: "s",
-    4: "minute",
-    5: "hour",
-    6: "day",
-    7: "reserved"
-  }[rate_value]
-
-  mod_value = (value & 0b00000110) >> 1
-  mod_unit = {
-    0: None,
-    1: "divide",
-    2: "times",
-    3: "reserved"
-  }[mod_value]
-
-  out["units"] = {
-    "format": {
-      "code": format_value,
-      "name": format_name
-    },
-    "rate": {
-      "code": rate_value,
-      "unit": rate_unit
-    },
-    "modifier": {
-      "code": mod_value,
-      "unit": mod_unit
-    },
-    "percentage": bool(value & 0b00000001)
-  }
-
-  out["base_unit"] = get_sensor_unit_type(data.next(1)[0])
-  out["modifier_unit"] = data.next()[0]
+  values = data.next(3)
+  out.update(get_sensor_units(values))
 
   LINEARIZATION = {
       0x00: "linear",
@@ -589,6 +602,133 @@ def full_sensor_record_body_bytes(data):
   return out
 
 
+def read_compact_record_key_bytes(data):
+
+  out = {}
+
+  # 6 sensor owner ID
+  value = data.next()[0]
+  record_type = bool(value & 0b0000_0001)
+  record_value = value >> 1
+  if record_type:
+    out["software_id"] = record_value
+  else:
+    out["slave_address"] = record_value
+
+  # 7 sensor owner LUN
+  value = data.next()[0]
+  out["channel_number"] = value >> 4
+  out["fru_inventory_device_owner"] = (value & 0b0000_1100) >> 2
+  out["sensor_owner_lun"] = value & 0b0000_0011
+
+  # 8 sensor number
+  out["sensor_number"] = data.next()[0]
+
+  return out
+
+
+def compact_sensor_record(data):
+  """Table 43-2 - page 558-563"""
+
+  out = {}
+
+  # 9 entity ID -> 43-13
+  out["entity_id"] = data.next()[0]
+
+  # 10 entity instance
+  value = data.next()[0]
+  out["entity_instance"] = {
+    "type": "logical" if (value >> 7) else "physical",
+    "number": value & 0b0111_1111
+  }
+
+  # 11 sensor initialization
+  value = data.next()[0]
+  out["initialization"] = {
+    "settable": (value & 0b10000000) >> 7,
+    "scanning": (value & 0b01000000) >> 6,
+    "events": (value & 0b00100000) >> 5,
+    "thresholds": (value & 0b00010000) >> 4,
+    "hysteresis": (value & 0b00001000) >> 3,
+    "sensor_type": (value & 0b00000100) >> 2,
+    "default_state": {
+      "generation": (value & 0b00000010) >> 1,
+      "scanning": (value & 0b00000001)
+    }
+  }
+
+  # 12 capabilities
+  value = data.next()[0]
+  out["capabilities"] = get_sensor_capabilities(value)
+
+  # 13 sensor type
+  value = data.next()[0]
+  out["type"] = {
+    "code": sensor_type(value)
+  }
+
+  # 14 event / reading type code
+  value = data.next()[0]
+  out["reading_type"] = {
+    "code": value,
+    **event_reading_type(value)
+  }
+
+  # 15/16 asertion event maske / lower threshold reading mask
+  is_threshold_based = out["reading_type"]["class"] == "threshold"
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+
+  if is_threshold_based:
+    out["lower_threshold_reading_mask"] = mask[1:4]
+    out["threshold_assertion_mask"] = mask[4:]
+  else:
+    out["assertion_event_mask"] = mask[1:]
+
+  # 17/18 Deassertion Event Mask / Upper Threshold Reading Mask
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+  if is_threshold_based:
+    out["upper_threshold_reading_mask"] = mask[1:4]
+    out["threshold_deassertion_mask"] = mask[4:]
+  else:
+    out["deassertion_event_mask"] = mask[1:]
+
+  # 19/20 Discrete Reading Mask / Settable Threshold Mask, Readable Threshold Mask
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+  if is_threshold_based:
+    out["settable_threshold_mask"] = mask[2:8]
+    out["threshold_readable_mask"] = mask[10:]
+  else:
+    out["read_mask"] = mask[1:]
+
+  # 21, 22 and 23: Sensor units 1, 2 base unit, 3 modifier unit
+  values = data.next(3)
+  out.update(get_sensor_units(values))
+
+  # 24, 25 sensor record sharing, sensor direction
+  values = data.next(2)
+  out["sensor_record_sharing"] = {
+    "sensor_direction": {
+      0: "unspecified",
+      1: "input",
+      2: "output",
+      3: "reserved"
+    }[values[0] >> 6],
+    "modifier_type": {
+      0: "numeric",
+      1: "alpha"
+    }.get((values[0] & 0b0011_0000) >> 4, "undefined"),
+    "share_count": values[0] & 0b0000_1111,
+    "sharing": "increments" if values[1] >> 7 else "same",
+    "modifier_offset": values[1] & 0b0111_1111
+  }
+
+  return out
+
+
+
 def main():
   records = []
 
@@ -600,10 +740,14 @@ def main():
       record, record_data = read_header(file_data)
       if record["record_length"] == 0:
         break
-      record.update(read_record_key_bytes(record_data))
+
       if record["record_type"] == 1:
+        record.update(read_record_key_bytes(record_data))
         record.update(full_sensor_record_body_bytes(record_data))
-        print(record.get("device_id"), record.get("device_id_fmt"), record)
+      elif record["record_type"] == 2:
+        record.update(read_compact_record_key_bytes(record_data))
+        record.update(compact_sensor_record(record_data))
+      print(record.get("device_id"), record.get("device_id_fmt"), record)
     except StopIteration:
       break
 
