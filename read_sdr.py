@@ -388,6 +388,43 @@ def get_sensor_units(values):
   return out
 
 
+def decode_device_id(data):
+
+  value = data.next()[0]
+  fmt_code = (value & 0b11000000) >> 6
+  fmt = {
+    0: "unicode",
+    1: "bcd-plus",
+    2: "6-bit-ascii",
+    3: "8-bit-ascii"
+  }[fmt_code]
+
+  str_length = value & 0b00011111
+  if fmt == "unicode":
+    byte_length = str_length * 2
+  elif fmt == "bcd-plus":
+    byte_length = (str_length + 1) // 2
+  elif fmt == "6-bit-ascii":
+    byte_length = (str_length * 6 + 7) // 8
+  else:
+    byte_length = str_length
+
+  device_id = None
+  if not str_length in [0, 31]:
+    str_bytes = data.next(byte_length)
+
+    if fmt == "unicode":
+      device_id = decode_unicode(str_bytes)
+    elif fmt == "bcd-plus":
+      device_id = decode_bcd(str_bytes)
+    elif fmt == "6-bit-ascii":
+      device_id = decode_6bit_ascii(str_bytes)
+    else:
+      device_id = decode_8bit_ascii(str_bytes)
+
+  return fmt, device_id
+
+
 def full_sensor_record_body_bytes(data):
 
   out = {}
@@ -564,40 +601,7 @@ def full_sensor_record_body_bytes(data):
 
   _ = data.next(3)  # 2 reserved values + OEM value
 
-  value = data.next()[0]
-  fmt_code = (value & 0b11000000) >> 6
-  fmt = {
-    0: "unicode",
-    1: "bcd-plus",
-    2: "6-bit-ascii",
-    3: "8-bit-ascii"
-  }[fmt_code]
-  out["device_id_fmt"] = fmt
-
-  str_length = value & 0b00011111
-  if fmt == "unicode":
-    byte_length = str_length * 2
-  elif fmt == "bcd-plus":
-    byte_length = (str_length + 1) // 2
-  elif fmt == "6-bit-ascii":
-    byte_length = (str_length * 6 + 7) // 8
-  else:
-    byte_length = str_length
-
-  if not str_length in [0, 31]:
-    str_bytes = data.next(byte_length)
-
-    if fmt == "unicode":
-      device_id = decode_unicode(str_bytes)
-    elif fmt == "bcd-plus":
-      device_id = decode_bcd(str_bytes)
-    elif fmt == "6-bit-ascii":
-      device_id = decode_6bit_ascii(str_bytes)
-    else:
-      device_id = decode_8bit_ascii(str_bytes)
-
-    out["device_id"] = device_id
-
+  out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 
   return out
 
@@ -724,6 +728,21 @@ def compact_sensor_record(data):
     "sharing": "increments" if values[1] >> 7 else "same",
     "modifier_offset": values[1] & 0b0111_1111
   }
+
+  # 26 positive-going threshold hysteresis value
+  out["raw_positive_threshold_hysteresis"] = data.next()[0]
+
+  # 27 negative-going threshold hysteresis value
+  out["raw_negative_threshold_hysteresis"] = data.next()[0]
+
+  # 28, 29, 30 - reserved
+  out["reserved"] = data.next(3)
+
+  # 31 OEM
+  out["oem"] = data.next()[0]
+
+  # 32 device id format + length; 33 onwards device id string
+  out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 
   return out
 
