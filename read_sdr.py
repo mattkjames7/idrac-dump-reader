@@ -794,7 +794,34 @@ def event_only_record(data):
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 
   return out
-  
+
+
+def event_association_record_key_bytes(data):
+
+  out = {}
+  out["container_entity_id"] = data.next()[0]
+  out["container_entity_instance"] = data.next()[0]
+
+  value = data.next()[0]
+  out["flags"] = {
+    "type": "range" if (value >> 7) else "list",
+    "record_link_exists": bool(value & 0b0100_0000),
+    "accessible_presence_sensor": bool(value & 0b0010_000),
+    "reserved": (value & 0b0001_1111)
+  }
+
+  values = data.next(2)
+  if ["out"]["type"] == "list":
+    out["contained_entity_1"] = values[0]
+    out["contained_entity_1_instance"] = values[1]
+  else:
+    out["range_1_entity"] = values[0]
+    out["range_1_first_entity_instance"] = values[1]
+
+  return out
+
+def event_association_record(data):
+  """table 43-4 page 567"""
 
 # TODO:
 # 8 - Entity Association Record
