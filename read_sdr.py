@@ -788,9 +788,9 @@ def event_only_record(data):
   out["reserved"] = data.next()[0]
 
   # 16 - OEM
-  out["oem"] = data.next()[0] 
- 
-  # 17, 18 + N - 
+  out["oem"] = data.next()[0]
+
+  # 17, 18 + N -
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 
   return out
@@ -820,8 +820,32 @@ def event_association_record_key_bytes(data):
 
   return out
 
-def event_association_record(data):
+def event_association_record(data, record_type):
   """table 43-4 page 567"""
+
+  out = {}
+
+  values = data.next(6)
+  if record_type == "list":
+    for i, j in enumerate([2, 3, 4]):
+      unspecified = values[i] == 0
+      out[f"contained_entity_{j}"] = values[i]
+      out[f"contained_entity_{j}_instance"] = 0 if unspecified else values[i+1]
+  else:
+    unspecified = values[0] == 0
+    out["range_1_entity"] = values[0]
+    out["range_1_last_entity_instance"] = 0 if unspecified else values[1]
+
+    unspecified = values[2] == 0
+    out["range_2_entity"] = values[2]
+    out["range_2_first_entity_instance"] = 0 if unspecified else values[3]
+
+    unspecified = values[4] == 0
+    out["range_2_entity"] = values[4]
+    out["range_2_last_entity_instance"] = 0 if unspecified else values[5]
+
+  return out
+
 
 # TODO:
 # 8 - Entity Association Record
