@@ -850,11 +850,11 @@ def event_association_record(data, record_type):
 # TODO:
 # 8 - Entity Association Record
 # 9 - Device-relative entity association record
-# 10 - generic device locator record
-# 11 - FRU device locator record
-# 12 - management controller device locator record
-# 13 - management controller confirmation record
-# 14 - BMC message channel info record
+# 16 - generic device locator record
+# 17 - FRU device locator record
+# 18 - management controller device locator record
+# 19 - management controller confirmation record
+# 20 - BMC message channel info record
 # 192 - OEM record
 
 def main():
