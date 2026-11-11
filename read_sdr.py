@@ -361,7 +361,7 @@ def device_type_code(values):
         2: "IPMI FRU Inventory",
         3: "System Processor Cartridge FRU / PIROM"
       }.get(values[1], "reserved")
-    elif modifier_type == "fru"
+    elif modifier_type == "fru":
       modifier = {
         0: "IPMI FRU Inventory",
         1: "DIMM Memory ID",
@@ -1331,7 +1331,7 @@ def oem_record(data, record_length):
       | man_id_bytes[0]
   )
   out = {
-    "manufacturer_id": "f{man_id:06x}"
+    "manufacturer_id": "f{man_id:06x}",
     "data": data.next("all")
   }
 
