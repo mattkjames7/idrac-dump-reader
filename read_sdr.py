@@ -1,5 +1,8 @@
 
 
+from operator import mod
+
+
 fname = "sdr.bin"
 
 
@@ -301,6 +304,79 @@ def get_sensor_unit_type(code):
     92: "grams",
   }
   return units.get(code, None)
+
+
+def device_type_code(values):
+
+  options = {
+    0x02: ("DS1624 temperature sensor / EEPROM", "other"),
+    0x03: ("DS1621 temperature sensor", "other"),
+    0x04: ("LM75 Temperature Sensor", "other"),
+    0x05: ("‘Heceta’ ASIC", "heceta"),
+    0x08: ("EEPROM / 24C01", "eeprom"),
+    0x09: ("EEPROM / 24C02", "eeprom"),
+    0x0a: ("EEPROM / 24C04", "eeprom"),
+    0x0b: ("EEPROM / 24C08", "eeprom"),
+    0x0c: ("EEPROM / 24C16", "eeprom"),
+    0x0d: ("EEPROM / 24C17", "eeprom"),
+    0x0e: ("EEPROM / 24C32", "eeprom"),
+    0x0f: ("EEPROM / 24C64", "eeprom"),
+    0x10: ("FRU Inventory Device", "fru"),
+    0x14: ("PCF 8570 256 byte RAM", "other"),
+    0x15: ("PCF 8573 clock/calendar", "other"),
+    0x16: ("PCF 8574A ‘i/o port’", "other"),
+    0x17: ("PCF 8583 clock/calendar", "other"),
+    0x18: ("PCF 8593 clock/calendar ", "other"),
+    0x19: ("Clock calendar", "other"),
+    0x1a: ("PCF 8591 A/D, D/A Converter", "other"),
+    0x1b: ("i/o port, specific device not specified", "other"),
+    0x1c: ("A/D Converter, specific device not specified", "other"),
+    0x1d: ("D/A Converter, specific device not specified", "other"),
+    0x1e: ("A/D, D/A Converter, specific device not specified", "other"),
+    0x1f: ("LCD controller / Driver, specific device not specified", "other"),
+    0x20: ("Core Logic (Chip set) Device, specific device not specified", "other"),
+    0x21: ("LMC6874 Intelligent Battery controller, or equivalent", "other"),
+    0x22: ("Intelligent Battery controller, specific device not specified", "other"),
+    0x23: ("Combo Management ASIC, specific device not specified", "other"),
+    0x24: ("Maxim 1617 Temperature Sensor", "other"),
+    0xbf: ("Other / unspeicified device", "other")
+  }
+
+  if values[0] in options:
+    device_type, modifier_type = options[values[0]]
+
+    if modifier_type == "heceta":
+      modifier = {
+        0: "Heceta 1 e.g. LM78",
+        1: "Heceta 2 e.g. LM79",
+        2: "LM80",
+        3: "Heceta 3 e.g. LM81/ ADM9240 / DS1780",
+        4: "Heceta 4",
+        5: "Heceta 5"
+      }.get(values[1], "unknown")
+    elif modifier_type == "eeprom":
+      modifier = {
+        0: "unspecified",
+        1: "DIMM Memory ID",
+        2: "IPMI FRU Inventory",
+        3: "System Processor Cartridge FRU / PIROM"
+      }.get(values[1], "reserved")
+    elif modifier_type == "fru"
+      modifier = {
+        0: "IPMI FRU Inventory",
+        1: "DIMM Memory ID",
+        2: "IPMI FRU Inventory",
+        3: "System Processor Cartridge FRU / PIROM",
+        0xff: "unspecified"
+      }.get(values[1], "reserved")
+    else:
+      modifier = "unspecified" if values[1] == 0 else values[1]
+
+    return device_type, modifier
+  elif (values[0] >= 0xc0) & (values[0] <= 0xff):
+    return "OEM specified device", "OEM specific"
+  else:
+    return "reserved", "n/a"
 
 
 def get_sensor_capabilities(value):
@@ -637,7 +713,7 @@ def compact_sensor_record(data):
   out = {}
 
   # 9 entity ID -> 43-13
-  out["entity_id"] = data.next()[0]
+  out["entity_id"] = data.next()[0]  # TODO
 
   # 10 entity instance
   value = data.next()[0]
@@ -761,10 +837,10 @@ def event_only_record(data):
   }
 
   # 11 - sensor type (table 36-3)
-  out["sensor_type"] = data.next()[0]
+  out["sensor_type"] = data.next()[0]  # TODO
 
   # 12 - event type reading code (table 36-1)
-  out["event_reading_type_code"] = data.next()[0]
+  out["event_reading_type_code"] = data.next()[0]  # TODO
 
   # 13,14 - sensor reord sharing/direction
   values = data.next(2)
@@ -983,8 +1059,8 @@ def generic_device_locator_record_body(data):
   _ = data.next()
 
   # 11 - device type (from table 43-12)
-
   # 12 - device type modifier (from table 43-12)
+  out["device_type"], out["device_modifier"] = device_type_code(data.next(2))
 
   # 13 - entity id
   out["entity_id"] = data.next()[0]
@@ -1032,9 +1108,8 @@ def fru__device_locator_body(data):
   _ = data.next()[0]
 
   # 11 - device type (from table 43-12)
-
   # 12 - device type modifier (from table 43-12)
-
+  out["device_type"], out["device_modifier"] = device_type_code(data.next(2))
 
   # 13 - FRU entity id
   out["fru_entity_id"] = data.next()[0]
@@ -1183,6 +1258,69 @@ def management_controller_confirmation_body(data):
   return out
 
 
+def channel_info(value):
+
+  out = {}
+  out["transmit_supported"] = bool(value & 0b1000_0000)
+  mess_lun_val = (value & 0b0111_0000) >> 4
+  if mess_lun_val <= 0b0011:
+    out["message_receive_lun"] = mess_lun_val
+  elif mess_lun_val == 0b0111:
+    out["message_receive_lun"] = "no LUN"
+  else:
+    out["message_receive_lun"] = "reserved"
+
+  proto = value & 0b0000_1111
+  proto_dict = {
+    0: "not present",
+    1: "IPMB",
+    2: "ICMB v1.0",
+    3: "ICMB v0.9",
+    4: "SMBus v1.0",
+    5: "System Format",
+    0xc: "OEM Protocol 1",
+    0xd: "OEM Protocol 2",
+    0xe: "OEM Protocol 3",
+    0xf: "OEM Protocol 4",
+  }
+  out["protocol"] = proto_dict.get(proto, "reserved")
+
+  return out
+
+
+def interrupt_type(value):
+
+  if (value >=0) &  (value <= 0x0f):
+    return f"IRQ {value}"
+  elif (value >= 0x10) & (value <= 0x13):
+    letter = chr(ord('a') + 0).upper()
+    return f"PCI {letter}"
+  elif value == 0x14:
+    return "SMI"
+  elif value == 0x15:
+    return "SCI"
+  elif (value >= 0x20) & (value <= 0x5f):
+    return f"system interrupt {value - 0x20}"
+  elif value == 0x60:
+    return "ACPI / Plug 'n Play BIOS"
+  elif value == 0xff:
+    return "no interrupt"
+  else:
+    return "reserved"
+
+
+def bmc_message_channel_info_record(data):
+
+  out = {}
+  for i in range(8):
+    out[f"channel_{i}"] = channel_info(data.next()[0])
+
+  out["messaging_interrupt_type"] = interrupt_type(data.next()[0])
+  out["event_message_buffer_interrupt_type"] = interrupt_type(data.next()[0])
+
+  return out
+
+
 def oem_record(data, record_length):
   """Table 43-11, page 578"""
 
@@ -1198,12 +1336,6 @@ def oem_record(data, record_length):
   }
 
   return out
-
-# TODO:
-# 18 - management controller device locator record
-# 19 - management controller confirmation record
-# 20 - BMC message channel info record
-# TODO: function for table 43-12
 
 
 def main():
