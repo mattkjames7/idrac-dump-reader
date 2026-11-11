@@ -817,7 +817,7 @@ def event_association_record_key_bytes(data):
   out["flags"] = event_association_flags(value)
 
   values = data.next(2)
-  if ["out"]["type"] == "list":
+  if out["flags"]["type"] == "list":
     out["contained_entity_1"] = values[0]
     out["contained_entity_1_instance"] = values[1]
   else:
@@ -1041,7 +1041,7 @@ def fru__device_locator_body(data):
 
   # 14 - FRU entity instance
   out["fru_entity_instance"] = data.next()[0]
-  
+
   # 15 - OEM
   _ = data.next()[0]
 
@@ -1114,6 +1114,25 @@ def management_controller_device_body(data):
   return out
 
 
+def bytes_to_guid(values):
+
+  chars = []
+  ranges = [
+    [0,4],
+    [4,6],
+    [6,8],
+    [8,10],
+    [10,16]
+  ]
+
+  for i, rng in enumerate(ranges):
+    for x in values[rng[0]:rng[1]]:
+      chars.append(f"{x:02x}")
+    if i < len(ranges) - 1:
+      chars.append("-")
+  return "".join(chars)
+
+
 def management_controller_confirmation_record_key_bytes(data):
 
   out = {}
@@ -1127,9 +1146,9 @@ def management_controller_confirmation_record_key_bytes(data):
 
   return out
 
-  
-def management_controller_confirmation_body(data):
 
+def management_controller_confirmation_body(data):
+  """Table 43-9, page 575"""
   out = {}
 
   # 9 - firmware major revision
@@ -1141,6 +1160,28 @@ def management_controller_confirmation_body(data):
   out["firmware_revision"] = f"{major}.{minor}"
 
   # 11 - IPMI version
+  value = data.next()[0]
+  lsd = value >> 4
+  msd = value & 0b0000_1111
+  out["ipmi_version"] = f"{msd}.{lsd}"
+
+  # 12 - 14 - manufacturer id
+  values = data.next(3)
+  out["manufacturer_id"] = int(
+    ((values[2] & 0b0000_1111) << 16)
+    | (values[1] << 8)
+    | values[0]
+  )
+
+  # 15 -16 - product id
+  values = data.next(2)
+  out["product_id"] = int((values[1] << 8) | values[0])
+
+  # 17 - 32 - device guid
+  out["device_guid"] = bytes_to_guid(data.next(16))
+
+  return out
+
 
 def oem_record(data, record_length):
   """Table 43-11, page 578"""
