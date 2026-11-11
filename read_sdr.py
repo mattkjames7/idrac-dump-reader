@@ -1024,7 +1024,31 @@ def fru_device_locator_record_key_bytes(data):
   return out
 
 
+def fru__device_locator_body(data):
 
+  out = {}
+
+  # 10 - reserved
+  _ = data.next()[0]
+
+  # 11 - device type (from table 43-12)
+
+  # 12 - device type modifier (from table 43-12)
+
+
+  # 13 - FRU entity id
+  out["fru_entity_id"] = data.next()[0]
+
+  # 14 - FRU entity instance
+  out["fru_entity_instance"] = data.next()[0]
+  
+  # 15 - OEM
+  _ = data.next()[0]
+
+  # 16 onwards - device ID string
+  out["device_id_fmt"], out["device_id"] = decode_device_id(data)
+
+  return out
 
 def oem_record(data, record_length):
   """Table 43-11, page 578"""
@@ -1043,10 +1067,11 @@ def oem_record(data, record_length):
   return out
 
 # TODO:
-# 17 - FRU device locator record
 # 18 - management controller device locator record
 # 19 - management controller confirmation record
 # 20 - BMC message channel info record
+# TODO: function for table 43-12
+
 
 def main():
   records = []
