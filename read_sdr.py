@@ -1001,6 +1001,31 @@ def generic_device_locator_record_body(data):
   return out
 
 
+def fru_device_locator_record_key_bytes(data):
+
+  out = {}
+  out["device_access_address"] = data.next()[0] >> 1
+
+  # I think we need the following byte to define this one
+  fru_address = data.next()[0]
+
+  value = data.next()[0]
+  out["fru_device_type"] = "logical" if value >> 7 else "physical"
+  out["lun"] = (value & 0b0001_1000) >> 3
+  out["bus_id"] = value & 0b0000_0111
+
+  if out["fru_device_type"] == "logical":
+    out["logical_fru_device"] = fru_address
+  else:
+    out["device_slave_address"] = fru_address >> 1
+
+  out["channel_number"] = data.next()[0] >> 4
+
+  return out
+
+
+
+
 def oem_record(data, record_length):
   """Table 43-11, page 578"""
 
