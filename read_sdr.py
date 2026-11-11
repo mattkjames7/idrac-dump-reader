@@ -1063,7 +1063,7 @@ def management_controller_device_record_key_bytes(data):
 
 
 def management_controller_device_body(data):
-
+  """table 43-8, page 573-574"""
   out = {}
 
   # 8 - power state notification / global initialization
@@ -1112,7 +1112,35 @@ def management_controller_device_body(data):
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 
   return out
+
+
+def management_controller_confirmation_record_key_bytes(data):
+
+  out = {}
+
+  out["device_slave_adress"] = data.next()[0] >> 1
+  out["device_id"] = data.next()[0]
+
+  value = data.next()[0]
+  out["channel_number"] = value >> 4
+  out["device_revision"] = value & 0b0000_1111
+
+  return out
+
   
+def management_controller_confirmation_body(data):
+
+  out = {}
+
+  # 9 - firmware major revision
+  major = data.next()[0] & 0b0111_1111
+
+  # 10 - firmware minor revision
+  minor = data.next()[0]
+
+  out["firmware_revision"] = f"{major}.{minor}"
+
+  # 11 - IPMI version
 
 def oem_record(data, record_length):
   """Table 43-11, page 578"""
