@@ -1,3 +1,5 @@
+from .common import bytes_to_guid
+
 
 def management_controller_confirmation_record_key_bytes(data):
 
@@ -45,5 +47,13 @@ def management_controller_confirmation_body(data):
 
   # 17 - 32 - device guid
   out["device_guid"] = bytes_to_guid(data.next(16))
+
+  return out
+
+
+def management_controller_confirmation_record(data):
+
+  out = management_controller_confirmation_record_key_bytes(data)
+  out.update(management_controller_confirmation_body(data))
 
   return out

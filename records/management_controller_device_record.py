@@ -1,3 +1,5 @@
+from .decode_device_id import decode_device_id
+
 
 def management_controller_device_record_key_bytes(data):
 
@@ -58,5 +60,13 @@ def management_controller_device_body(data):
 
   # 16 onwards - device ID string
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
+
+  return out
+
+
+def management_controller_device_record(data):
+
+  out = management_controller_device_record_key_bytes(data)
+  out.update(management_controller_device_body(data))
 
   return out

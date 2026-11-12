@@ -1,3 +1,6 @@
+from .decode_device_id import decode_device_id
+from .devices import device_type_code
+
 
 def fru_device_locator_record_key_bytes(data):
 
@@ -44,5 +47,13 @@ def fru_device_locator_body(data):
 
   # 16 onwards - device ID string
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
+
+  return out
+
+
+def fru_device_locator_record(data):
+
+  out = fru_device_locator_record_key_bytes(data)
+  out.update(fru_device_locator_body(data))
 
   return out

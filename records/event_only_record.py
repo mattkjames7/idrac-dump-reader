@@ -1,5 +1,7 @@
+from .sensors import read_record_key_bytes
 
-def event_only_record(data):
+
+def event_only_record_body(data):
   """Table 43-3 pages 564-565"""
   out = {}
 
@@ -45,5 +47,14 @@ def event_only_record(data):
 
   # 17, 18 + N -
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
+
+  return out
+
+
+def event_only_record(data):
+
+  out = read_record_key_bytes(data)
+
+  out.update(event_only_record_body(data))
 
   return out

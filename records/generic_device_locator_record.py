@@ -1,10 +1,13 @@
+from .decode_device_id import decode_device_id
+from .devices import device_type_code
+
 
 def generic_device_locator_record_key_bytes(data):
 
   out = {}
 
   value = data.next()[0]
-  address = value >> 0
+  address = value >> 1
   out["device_access_address"] = address
   out["on_ipmb"] = address == 0
 
@@ -45,5 +48,13 @@ def generic_device_locator_record_body(data):
 
   # 16 onward - device ID string
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
+
+  return out
+
+
+def generic_device_locator_record(data):
+
+  out = generic_device_locator_record_key_bytes(data)
+  out.update(generic_device_locator_record_body(data))
 
   return out
