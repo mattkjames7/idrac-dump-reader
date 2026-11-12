@@ -1,28 +1,8 @@
-
-
-from operator import mod
-
+from records.raw_record_data import RawRecordData
 
 fname = "sdr.bin"
 
 
-class RawRecordData:
-  def __init__(self, data):
-    self.iterator = iter(data)
-
-  def next(self, n=1):
-    if not isinstance(n, int) and not n == "all":
-      raise ValueError
-
-    items = []
-    try:
-      if n == "all":
-        items = list(self.iterator)
-      else:
-        items = [next(self.iterator) for _ in range(n)]
-    except StopIteration:
-      pass
-    return items
 
 
 
@@ -1417,7 +1397,6 @@ def oem_record(data, record_length):
 
 
 def main():
-  records = []
 
   with open(fname, "rb") as f:
     file_data = iter(f.read())
