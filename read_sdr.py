@@ -38,342 +38,7 @@ def read_record_key_bytes(data):
   return out
 
 
-def read_u16(data):
-  low, high = data.next(2)
-  return low | (high << 8)
 
-
-def int_to_bool_array(value, length):
-  return [bool(value & (1 << i)) for i in reversed(range(length))]
-
-
-def sensor_type(code):
-  sensor_types = {
-    0x00: "reserved",
-    0x01: "temperature",
-    0x02: "voltage",
-    0x03: "current",
-    0x04: "fan",
-    0x05: "physical security",
-    0x06: "platform security violation attempt",
-    0x07: "processor",
-    0x08: "power supply",
-    0x09: "power unit",
-    0x0a: "cooling device",
-    0x0b: "other units-based sensor",
-    0x0c: "memory",
-    0x0d: "drive slot/bay",
-    0x0e: "post memory resize",
-    0x0f: "system firmware progress",
-    0x10: "event logging disabled",
-    0x11: "watchdog 1",
-    0x12: "system event",
-    0x13: "critical interrupt",
-    0x14: "button/switch",
-    0x15: "module/board",
-    0x16: "microcontroller/coprocessor",
-    0x17: "add-in card",
-    0x18: "chassis",
-    0x19: "chip set",
-    0x1a: "other fru",
-    0x1b: "cable/interconnect",
-    0x1c: "terminator",
-    0x1d: "system boot/restart initiated",
-    0x1e: "boot error",
-    0x1f: "base os boot/installation status",
-    0x20: "os stop/shutdown",
-    0x21: "slot/connector",
-    0x22: "system acpi power state",
-    0x23: "watchdog 2",
-    0x24: "platform alert",
-    0x25: "entity presence",
-    0x26: "monitor asic/ic",
-    0x27: "lan",
-    0x28: "management subsystem health",
-    0x29: "battery",
-    0x2a: "session audit",
-    0x2b: "version change",
-    0x2c: "fru state",
-  }
-
-  if code in sensor_types:
-    return sensor_types[code]
-  if 0xc0 <= code <= 0xff:
-    return "oem reserved"
-  return "reserved"
-
-
-def event_reading_type(code):
-  event_reading_types = {
-    0x00: {"category": "unspecified", "class": "n/a"},
-    0x01: {"category": "threshold", "class": "threshold"},
-    0x6f: {"category": "sensor-specific", "class": "discrete"},
-  }
-
-  if code in event_reading_types:
-    return event_reading_types[code].copy()
-  if 0x02 <= code <= 0x0c:
-    return {"category": "generic", "class": "discrete"}
-  if 0x70 <= code <= 0x7f:
-    return {"category": "oem", "class": "oem"}
-  return {"category": "reserved", "class": "reserved"}
-
-
-def get_sensor_unit_type(code):
-
-  units = {
-    0: "unspecified",
-    1: "degrees C",
-    2: "degrees F",
-    3: "degrees K",
-    4: "Volts",
-    5: "Amps",
-    6: "Watts",
-    7: "Joules",
-    8: "Coulombs",
-    9: "VA",
-    10: "Nits",
-    11: "lumen",
-    12: "lux",
-    13: "Candela",
-    14: "kPa",
-    15: "PSI",
-    16: "Newton",
-    17: "CFM",
-    18: "RPM",
-    19: "Hz",
-    20: "microsecond",
-    21: "millisecond",
-    22: "second",
-    23: "minute",
-    24: "hour",
-    25: "day",
-    26: "week",
-    27: "mil",
-    28: "inches",
-    29: "feet",
-    30: "cu in",
-    31: "cu feet",
-    32: "mm",
-    33: "cm",
-    34: "m",
-    35: "cu cm",
-    36: "cu m",
-    37: "liters",
-    38: "fluid ounce",
-    39: "radians",
-    40: "steradians",
-    41: "revolutions",
-    42: "cycles",
-    43: "gravities",
-    44: "ounce",
-    45: "pound",
-    46: "ft-lb",
-    47: "oz-in",
-    48: "gauss",
-    49: "gilberts",
-    50: "henry",
-    51: "millihenry",
-    52: "farad",
-    53: "microfarad",
-    54: "ohms",
-    55: "siemens",
-    56: "mole",
-    57: "becquerel",
-    58: "PPM (parts/million)",
-    60: "Decibels",
-    61: "DbA",
-    62: "DbC",
-    63: "gray",
-    64: "sievert",
-    65: "color temp deg K",
-    66: "bit",
-    67: "kilobit",
-    68: "megabit",
-    69: "gigabit",
-    70: "byte",
-    71: "kilobyte",
-    72: "megabyte",
-    73: "gigabyte",
-    74: "word (data)",
-    75: "dword",
-    76: "qword",
-    77: "line (re. mem. line)",
-    78: "hit",
-    79: "miss",
-    80: "retry",
-    81: "reset",
-    82: "overrun / overflow",
-    83: "underrun",
-    84: "collision",
-    85: "packets",
-    86: "messages",
-    87: "characters",
-    88: "error",
-    89: "correctable error",
-    90: "uncorrectable error",
-    91: "fatal error",
-    92: "grams",
-  }
-  return units.get(code, None)
-
-
-def device_type_code(values):
-
-  options = {
-    0x02: ("DS1624 temperature sensor / EEPROM", "other"),
-    0x03: ("DS1621 temperature sensor", "other"),
-    0x04: ("LM75 Temperature Sensor", "other"),
-    0x05: ("‘Heceta’ ASIC", "heceta"),
-    0x08: ("EEPROM / 24C01", "eeprom"),
-    0x09: ("EEPROM / 24C02", "eeprom"),
-    0x0a: ("EEPROM / 24C04", "eeprom"),
-    0x0b: ("EEPROM / 24C08", "eeprom"),
-    0x0c: ("EEPROM / 24C16", "eeprom"),
-    0x0d: ("EEPROM / 24C17", "eeprom"),
-    0x0e: ("EEPROM / 24C32", "eeprom"),
-    0x0f: ("EEPROM / 24C64", "eeprom"),
-    0x10: ("FRU Inventory Device", "fru"),
-    0x14: ("PCF 8570 256 byte RAM", "other"),
-    0x15: ("PCF 8573 clock/calendar", "other"),
-    0x16: ("PCF 8574A ‘i/o port’", "other"),
-    0x17: ("PCF 8583 clock/calendar", "other"),
-    0x18: ("PCF 8593 clock/calendar ", "other"),
-    0x19: ("Clock calendar", "other"),
-    0x1a: ("PCF 8591 A/D, D/A Converter", "other"),
-    0x1b: ("i/o port, specific device not specified", "other"),
-    0x1c: ("A/D Converter, specific device not specified", "other"),
-    0x1d: ("D/A Converter, specific device not specified", "other"),
-    0x1e: ("A/D, D/A Converter, specific device not specified", "other"),
-    0x1f: ("LCD controller / Driver, specific device not specified", "other"),
-    0x20: ("Core Logic (Chip set) Device, specific device not specified", "other"),
-    0x21: ("LMC6874 Intelligent Battery controller, or equivalent", "other"),
-    0x22: ("Intelligent Battery controller, specific device not specified", "other"),
-    0x23: ("Combo Management ASIC, specific device not specified", "other"),
-    0x24: ("Maxim 1617 Temperature Sensor", "other"),
-    0xbf: ("Other / unspeicified device", "other")
-  }
-
-  if values[0] in options:
-    device_type, modifier_type = options[values[0]]
-
-    if modifier_type == "heceta":
-      modifier = {
-        0: "Heceta 1 e.g. LM78",
-        1: "Heceta 2 e.g. LM79",
-        2: "LM80",
-        3: "Heceta 3 e.g. LM81/ ADM9240 / DS1780",
-        4: "Heceta 4",
-        5: "Heceta 5"
-      }.get(values[1], "unknown")
-    elif modifier_type == "eeprom":
-      modifier = {
-        0: "unspecified",
-        1: "DIMM Memory ID",
-        2: "IPMI FRU Inventory",
-        3: "System Processor Cartridge FRU / PIROM"
-      }.get(values[1], "reserved")
-    elif modifier_type == "fru":
-      modifier = {
-        0: "IPMI FRU Inventory",
-        1: "DIMM Memory ID",
-        2: "IPMI FRU Inventory",
-        3: "System Processor Cartridge FRU / PIROM",
-        0xff: "unspecified"
-      }.get(values[1], "reserved")
-    else:
-      modifier = "unspecified" if values[1] == 0 else values[1]
-
-    return device_type, modifier
-  elif (values[0] >= 0xc0) & (values[0] <= 0xff):
-    return "OEM specified device", "OEM specific"
-  else:
-    return "reserved", "n/a"
-
-
-def get_sensor_capabilities(value):
-
-  hyst_value = (value & 0b00110000) >> 4
-  hysteresis = {
-    "supported": hyst_value != 0,
-    "readable": hyst_value in [1, 2],
-    "settable": hyst_value == 2,
-    "fixed": hyst_value == 3
-  }
-  thresh_value = (value & 0b00001100) >> 2
-  threshold = {
-    "supported": thresh_value != 0,
-    "readable": thresh_value in (1, 2),
-    "settable": thresh_value == 2,
-    "fixed": thresh_value == 3
-  }
-  mess_value = (value & 0b00000011)
-  messages = {
-    "per_threshold": mess_value == 0,
-    "entire_sensor": mess_value <= 1,
-    "global_disable": mess_value <= 2
-  }
-  out = {
-    "ignore": bool((value & 0b10000000) >> 7),
-    "auto_rearm": bool((value & 0b01000000) >> 6),
-    "hysteresis": hysteresis,
-    "threshold_access": threshold,
-    "messages": messages
-  }
-  return out
-
-
-def get_sensor_units(values):
-
-  out = {}
-
-  format_value = values[0] >> 6
-  format_name = {
-    0: "unsigned",
-    1: "signed, 1's complement",
-    2: "signed, 2's complement",
-    3: "not numeric"
-  }[format_value]
-
-  rate_value = (values[0] & 0b00111111) >> 3
-  rate_unit = {
-    0: None,
-    1: "μs",
-    2: "ms",
-    3: "s",
-    4: "minute",
-    5: "hour",
-    6: "day",
-    7: "reserved"
-  }[rate_value]
-
-  mod_value = (values[0] & 0b00000110) >> 1
-  mod_unit = {
-    0: None,
-    1: "divide",
-    2: "times",
-    3: "reserved"
-  }[mod_value]
-
-  out["units"] = {
-    "format": {
-      "code": format_value,
-      "name": format_name
-    },
-    "rate": {
-      "code": rate_value,
-      "unit": rate_unit
-    },
-    "modifier": {
-      "code": mod_value,
-      "unit": mod_unit
-    },
-    "percentage": bool(values[0] & 0b00000001)
-  }
-
-  out["base_unit"] = get_sensor_unit_type(values[1])
-  out["modifier_unit"] = values[2]
-  return out
 
 
 
@@ -497,10 +162,7 @@ def full_sensor_record_body_bytes(data):
     "value": direction_value
   }
 
-  def signed_nibble(value):
-    value = value & 0b1111
-    out = value - 16 if value & 0b1000 else value
-    return out
+
 
   value = data.next()[0]
   out["r_exp"] = signed_nibble(value >> 4)
@@ -583,82 +245,6 @@ def read_compact_record_key_bytes(data):
   return out
 
 
-def entity_id_codes(value):
-
-  entities = {
-    0x00: "unspecified",
-    0x01: "other",
-    0x02: "unknown",
-    0x03: "processor",
-    0x04: "disk or disk bay",
-    0x05: "peripheral bay",
-    0x06: "system management module",
-    0x07: "system board",
-    0x08: "memory module",
-    0x09: "processor module",
-    0x0a: "power supply",
-    0x0b: "add-in card",
-    0x0c: "front panel board",
-    0x0d: "back panel board",
-    0x0e: "power system board",
-    0x0f: "drive backplane",
-    0x10: "system internal expansion board ",
-    0x11: "Other system board",
-    0x12: "processor board",
-    0x13: "power unit / power domain",
-    0x14: "power module / DC-to-DC converter",
-    0x15: "power management / power distribution board",
-    0x16: "chassis back panel board",
-    0x17: "system chassis",
-    0x18: "sub-chassis",
-    0x19: "Other chassis board",
-    0x1a: "Disk Drive Bay",
-    0x1b: "Peripheral Bay",
-    0x1c: "Device Bay",
-    0x1d: "fan / cooling device",
-    0x1e: "cooling unit / cooling domain",
-    0x1f: "cable / interconnect",
-    0x20: "memory device",
-    0x21: "System Management Software",
-    0x22: "System Firmware",
-    0x23: "Operating System",
-    0x24: "system bus",
-    0x25: "Group",
-    0x26: "Remote (Out of Band) Management Communication Device",
-    0x27: "External Environment",
-    0x28: "battery",
-    0x29: "Processing blade",
-    0x2a: "Connectivity switch",
-    0x2b: "Processor/memory module",
-    0x2c: "I/O module",
-    0x2d: "Processor/ IO module",
-    0x2e: "Management Controller Firmware",
-    0x2f: "IPMI Channel",
-    0x30: "PCI Bus",
-    0x31: "PCI Express™ Bus",
-    0x32: "SCSI Bus (parallel)",
-    0x33: "SATA / SAS bus",
-    0x34: "Processor / front-side bus",
-    0x35: "Real Time Clock (RTC)",
-    0x37: "air inlet",
-    0x40: "air inlet",
-    0x41: "processor / CPU ",
-    0x42: "baseboard / main system board ",
-  }
-
-  if value in entities:
-    return entities[value]
-
-  if (value >= 0x90) & (value <= 0xaf):
-    return "Chassis-specific"
-
-  if (value >= 0xb0) & (value <= 0xcf):
-    return "Board-set-specific"
-
-  if (value >= 0xd0) & (value <= 0xff):
-    return "OEM defined"
-
-  return "reserved"
 
 
 def compact_sensor_record(data):
@@ -790,11 +376,11 @@ def event_only_record(data):
     "number": value & 0b0111_1111
   }
 
-  # 11 - sensor type (table 36-3)
-  out["sensor_type"] = data.next()[0]  # TODO
+  # 11 - sensor type
+  out["sensor_type"] = sensor_type(data.next()[0])
 
-  # 12 - event type reading code (table 36-1)
-  out["event_reading_type_code"] = data.next()[0]  # TODO
+  # 12 - event type reading code
+  out["event_reading_type_code"] = event_reading_type(data.next()[0])
 
   # 13,14 - sensor reord sharing/direction
   values = data.next(2)
@@ -823,17 +409,6 @@ def event_only_record(data):
   # 17, 18 + N -
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 
-  return out
-
-
-def event_association_flags(value):
-
-  out = {
-    "type": "range" if (value >> 7) else "list",
-    "record_link_exists": bool(value & 0b0100_0000),
-    "accessible_presence_sensor": bool(value & 0b0010_000),
-    "reserved": (value & 0b0001_1111)
-  }
   return out
 
 
@@ -1054,7 +629,7 @@ def fru_device_locator_record_key_bytes(data):
   return out
 
 
-def fru__device_locator_body(data):
+def fru_device_locator_body(data):
 
   out = {}
 
@@ -1143,23 +718,6 @@ def management_controller_device_body(data):
   return out
 
 
-def bytes_to_guid(values):
-
-  chars = []
-  ranges = [
-    [0,4],
-    [4,6],
-    [6,8],
-    [8,10],
-    [10,16]
-  ]
-
-  for i, rng in enumerate(ranges):
-    for x in values[rng[0]:rng[1]]:
-      chars.append(f"{x:02x}")
-    if i < len(ranges) - 1:
-      chars.append("-")
-  return "".join(chars)
 
 
 def management_controller_confirmation_record_key_bytes(data):
@@ -1212,55 +770,7 @@ def management_controller_confirmation_body(data):
   return out
 
 
-def channel_info(value):
 
-  out = {}
-  out["transmit_supported"] = bool(value & 0b1000_0000)
-  mess_lun_val = (value & 0b0111_0000) >> 4
-  if mess_lun_val <= 0b0011:
-    out["message_receive_lun"] = mess_lun_val
-  elif mess_lun_val == 0b0111:
-    out["message_receive_lun"] = "no LUN"
-  else:
-    out["message_receive_lun"] = "reserved"
-
-  proto = value & 0b0000_1111
-  proto_dict = {
-    0: "not present",
-    1: "IPMB",
-    2: "ICMB v1.0",
-    3: "ICMB v0.9",
-    4: "SMBus v1.0",
-    5: "System Format",
-    0xc: "OEM Protocol 1",
-    0xd: "OEM Protocol 2",
-    0xe: "OEM Protocol 3",
-    0xf: "OEM Protocol 4",
-  }
-  out["protocol"] = proto_dict.get(proto, "reserved")
-
-  return out
-
-
-def interrupt_type(value):
-
-  if (value >=0) &  (value <= 0x0f):
-    return f"IRQ {value}"
-  elif (value >= 0x10) & (value <= 0x13):
-    letter = chr(ord('a') + 0).upper()
-    return f"PCI {letter}"
-  elif value == 0x14:
-    return "SMI"
-  elif value == 0x15:
-    return "SCI"
-  elif (value >= 0x20) & (value <= 0x5f):
-    return f"system interrupt {value - 0x20}"
-  elif value == 0x60:
-    return "ACPI / Plug 'n Play BIOS"
-  elif value == 0xff:
-    return "no interrupt"
-  else:
-    return "reserved"
 
 
 def bmc_message_channel_info_record(data):
