@@ -25,7 +25,6 @@ def decode_6bit_ascii(str_bytes):
   chars += "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 
   out = ""
-  last = None
   remaining = 0
   for i, byte in enumerate(str_bytes):
     t = i % 3
