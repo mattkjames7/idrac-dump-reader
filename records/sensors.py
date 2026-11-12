@@ -239,3 +239,30 @@ def get_sensor_capabilities(value):
     "messages": messages
   }
   return out
+
+
+def read_record_key_bytes(data):
+
+  out = {}
+
+  # 6 sensor owner ID
+  value = data.next()[0]
+  record_type = bool(value & 0b0000_0001)
+  record_value = value >> 1
+  if record_type:
+    out["software_id"] = record_value
+  else:
+    out["slave_address"] = record_value
+
+  # 7 sensor owner LUN
+  value = data.next()[0]
+  out["channel_number"] = value >> 4
+  fru_inventory_owner = (value >> 2) & 0b0011
+  key = "reserved" if fru_inventory_owner else "fru_inventory_device_owner"
+  out[key] = (value & 0b0000_1100) >> 2
+  out["sensor_owner_lun"] = value & 0b0000_0011
+
+  # 8 sensor number
+  out["sensor_number"] = data.next()[0]
+
+  return out
