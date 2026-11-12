@@ -1,3 +1,6 @@
+from .events import event_association_flags
+from .raw_record_data import RawRecordData
+
 
 def read_device_relative_entity_association_block(
   data: RawRecordData,
@@ -67,7 +70,7 @@ def device_relative_entity_association_record_key_bytes(data):
   # 12 - Contained Entity 1 Device Channel
   # 13 - Contained Entity 1 / Range 1 Entity ID
   # 14 - Contained Entity 1 Instance /  Range 1 first entity instance
-  out.update(read_device_relative_entity_association_block(data,1,1,"first",record_type))
+  out.update(read_device_relative_entity_association_block(data,1,1,"first",out["flags"]["type"]))
 
   return out
 
@@ -93,5 +96,14 @@ def device_relative_entity_association_record_body(data, record_type):
   # 25 - Contained Entity 4 / Range 2 Entity ID
   # 26 - Contained Entity 4 Instance /  Range 2 last entity instance
   out.update(read_device_relative_entity_association_block(data,4,2,"last",record_type))
+
+  return out
+
+
+def device_relative_entity_association_record(data):
+
+  out = device_relative_entity_association_record_key_bytes(data)
+  record_type = out["flags"]["type"]
+  out.update(device_relative_entity_association_record_body(data, record_type))
 
   return out

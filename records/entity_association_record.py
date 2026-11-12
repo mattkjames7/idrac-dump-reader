@@ -1,5 +1,7 @@
+from .events import event_association_flags
 
-def event_association_record_key_bytes(data):
+
+def entity_association_record_key_bytes(data):
 
   out = {}
   out["container_entity_id"] = data.next()[0]
@@ -18,7 +20,7 @@ def event_association_record_key_bytes(data):
 
   return out
 
-def event_association_record(data, record_type):
+def entity_association_record_body(data, record_type):
   """table 43-4 page 567"""
 
   out = {}
@@ -41,5 +43,14 @@ def event_association_record(data, record_type):
     unspecified = values[4] == 0
     out["range_2_entity"] = values[4]
     out["range_2_last_entity_instance"] = 0 if unspecified else values[5]
+
+  return out
+
+
+def entity_association_record(data):
+
+  out = entity_association_record_key_bytes(data)
+  record_type = out["flags"]["type"]
+  out.update(entity_association_record_body(data, record_type))
 
   return out

@@ -5,9 +5,9 @@ def management_controller_device_record_key_bytes(data):
 
   out = {}
 
-  out["device_slave_address"] = data.read()[0] >> 1
+  out["device_slave_address"] = data.next()[0] >> 1
 
-  out["channel_number"] = data.read()[0] & 0b1111
+  out["channel_number"] = data.next()[0] & 0b1111
 
   return out
 

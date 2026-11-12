@@ -1,28 +1,17 @@
-from records.header import read_header
+import json
 
-fname = "sdr.bin"
+from records.read_sdr_file import read_sdr_file
+
+input_fname = "sdr.bin"
+output_fname = "sdr.json"
 
 
 def main():
 
-  with open(fname, "rb") as f:
-    file_data = iter(f.read())
+  records = read_sdr_file(input_fname)
 
-  while True:
-    try:
-      record, record_data = read_header(file_data)
-      if record["record_length"] == 0:
-        break
-
-      if record["record_type"] == 1:
-        record.update(read_record_key_bytes(record_data))
-        record.update(full_sensor_record_body_bytes(record_data))
-      elif record["record_type"] == 2:
-        record.update(read_compact_record_key_bytes(record_data))
-        record.update(compact_sensor_record(record_data))
-      print(record.get("device_id"), record.get("device_id_fmt"), record)
-    except StopIteration:
-      break
+  with open(output_fname, "w") as f:
+    json.dump(records, f, indent=2)
 
 
 if __name__ == "__main__":

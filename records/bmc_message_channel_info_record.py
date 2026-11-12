@@ -1,3 +1,5 @@
+from .events import channel_info, interrupt_type
+
 
 def bmc_message_channel_info_record(data):
 
