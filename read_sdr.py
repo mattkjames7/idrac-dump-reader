@@ -707,6 +707,84 @@ def read_compact_record_key_bytes(data):
   return out
 
 
+def entity_id_codes(value):
+
+  entities = {
+    0x00: "unspecified",
+    0x01: "other",
+    0x02: "unknown",
+    0x03: "processor",
+    0x04: "disk or disk bay",
+    0x05: "peripheral bay",
+    0x06: "system management module",
+    0x07: "system board",
+    0x08: "memory module",
+    0x09: "processor module",
+    0x0a: "power supply",
+    0x0b: "add-in card",
+    0x0c: "front panel board",
+    0x0d: "back panel board",
+    0x0e: "power system board",
+    0x0f: "drive backplane",
+    0x10: "system internal expansion board ",
+    0x11: "Other system board",
+    0x12: "processor board",
+    0x13: "power unit / power domain",
+    0x14: "power module / DC-to-DC converter",
+    0x15: "power management / power distribution board",
+    0x16: "chassis back panel board",
+    0x17: "system chassis",
+    0x18: "sub-chassis",
+    0x19: "Other chassis board",
+    0x1a: "Disk Drive Bay",
+    0x1b: "Peripheral Bay",
+    0x1c: "Device Bay",
+    0x1d: "fan / cooling device",
+    0x1e: "cooling unit / cooling domain",
+    0x1f: "cable / interconnect",
+    0x20: "memory device",
+    0x21: "System Management Software",
+    0x22: "System Firmware",
+    0x23: "Operating System",
+    0x24: "system bus",
+    0x25: "Group",
+    0x26: "Remote (Out of Band) Management Communication Device",
+    0x27: "External Environment",
+    0x28: "battery",
+    0x29: "Processing blade",
+    0x2a: "Connectivity switch",
+    0x2b: "Processor/memory module",
+    0x2c: "I/O module",
+    0x2d: "Processor/ IO module",
+    0x2e: "Management Controller Firmware",
+    0x2f: "IPMI Channel",
+    0x30: "PCI Bus",
+    0x31: "PCI Express™ Bus",
+    0x32: "SCSI Bus (parallel)",
+    0x33: "SATA / SAS bus",
+    0x34: "Processor / front-side bus",
+    0x35: "Real Time Clock (RTC)",
+    0x37: "air inlet",
+    0x40: "air inlet",
+    0x41: "processor / CPU ",
+    0x42: "baseboard / main system board ",
+  }
+
+  if value in entities:
+    return entities[value]
+
+  if (value >= 0x90) & (value <= 0xaf):
+    return "Chassis-specific"
+
+  if (value >= 0xb0) & (value <= 0xcf):
+    return "Board-set-specific"
+
+  if (value >= 0xd0) & (value <= 0xff):
+    return "OEM defined"
+
+  return "reserved"
+
+
 def compact_sensor_record(data):
   """Table 43-2 - page 558-563"""
 
