@@ -1,3 +1,5 @@
+from .common import int_to_bool_array, read_u16
+
 
 def sensor_type(code):
   sensor_types = {
@@ -264,5 +266,81 @@ def read_record_key_bytes(data):
 
   # 8 sensor number
   out["sensor_number"] = data.next()[0]
+
+  return out
+
+
+def sensor_initialization(value):
+  return {
+    "settable": (value & 0b10000000) >> 7,
+    "scanning": (value & 0b01000000) >> 6,
+    "events": (value & 0b00100000) >> 5,
+    "thresholds": (value & 0b00010000) >> 4,
+    "hysteresis": (value & 0b00001000) >> 3,
+    "sensor_type": (value & 0b00000100) >> 2,
+    "default_state": {
+      "generation": (value & 0b00000010) >> 1,
+        "scanning": (value & 0b00000001)
+    }
+  }
+
+
+def get_linearization(value):
+
+  LINEARIZATION = {
+      0x00: "linear",
+      0x01: "ln",
+      0x02: "log10",
+      0x03: "log2",
+      0x04: "exp",
+      0x05: "exp10",
+      0x06: "exp2",
+      0x07: "reciprocal",
+      0x08: "square",
+      0x09: "cube",
+      0x0A: "sqrt",
+      0x0B: "cube_root",
+  }
+  masked_value = value & 0b01111111
+  if masked_value in LINEARIZATION:
+      linearization = LINEARIZATION[masked_value]
+  elif masked_value == 0x70:
+      linearization = "non-linear"
+  elif 0x71 <= masked_value <= 0x7F:
+      linearization = "OEM-defined"
+  else:
+      linearization = "reserved"
+  return linearization
+
+
+def sensor_threashold_reading_masks(data, is_threshold_based):
+  """Common to both compact and full sensor records"""
+
+  out = {}
+
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+
+  if is_threshold_based:
+    out["lower_threshold_reading_mask"] = mask[1:4]
+    out["threshold_assertion_mask"] = mask[4:]
+  else:
+    out["assertion_event_mask"] = mask[1:]
+
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+  if is_threshold_based:
+    out["upper_threshold_reading_mask"] = mask[1:4]
+    out["threshold_deassertion_mask"] = mask[4:]
+  else:
+    out["deassertion_event_mask"] = mask[1:]
+
+  value = read_u16(data) & 0b0111_1111_1111_1111
+  mask = int_to_bool_array(value, 16)
+  if is_threshold_based:
+    out["settable_threshold_mask"] = mask[2:8]
+    out["threshold_readable_mask"] = mask[10:]
+  else:
+    out["read_mask"] = mask[1:]
 
   return out

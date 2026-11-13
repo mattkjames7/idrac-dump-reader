@@ -123,8 +123,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -265,8 +265,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -629,10 +629,7 @@
     "b": 0,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -651,6 +648,11 @@
     "lower_non-critical_threshold_raw": 5,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Fan1"
   },
@@ -785,10 +787,7 @@
     "b": 0,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -807,6 +806,11 @@
     "lower_non-critical_threshold_raw": 5,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Fan2"
   },
@@ -941,10 +945,7 @@
     "b": 0,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -963,6 +964,11 @@
     "lower_non-critical_threshold_raw": 5,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Fan3"
   },
@@ -1097,10 +1103,7 @@
     "b": 0,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -1119,6 +1122,11 @@
     "lower_non-critical_threshold_raw": 5,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Fan4"
   },
@@ -1253,10 +1261,7 @@
     "b": 0,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -1275,6 +1280,11 @@
     "lower_non-critical_threshold_raw": 5,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Fan5"
   },
@@ -1409,10 +1419,7 @@
     "b": 0,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -1431,6 +1438,11 @@
     "lower_non-critical_threshold_raw": 5,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Fan6"
   },
@@ -1565,10 +1577,7 @@
     "b": 384,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -1587,6 +1596,11 @@
     "lower_non-critical_threshold_raw": 131,
     "positive-going_threshold_hysteresis_value": 2,
     "negative-going_threshold_hysteresis_value": 2,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Inlet Temp"
   },
@@ -1721,10 +1735,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -1743,6 +1754,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 2,
     "negative-going_threshold_hysteresis_value": 2,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "CPU Usage"
   },
@@ -1877,10 +1893,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -1899,6 +1912,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 2,
     "negative-going_threshold_hysteresis_value": 2,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "IO Usage"
   },
@@ -2033,10 +2051,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -2055,6 +2070,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 2,
     "negative-going_threshold_hysteresis_value": 2,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "MEM Usage"
   },
@@ -2189,10 +2209,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -2211,6 +2228,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 2,
     "negative-going_threshold_hysteresis_value": 2,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "SYS Usage"
   },
@@ -2345,10 +2367,7 @@
     "b": 384,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -2367,6 +2386,11 @@
     "lower_non-critical_threshold_raw": 136,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Exhaust Temp"
   },
@@ -2501,10 +2525,7 @@
     "b": 384,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -2523,6 +2544,11 @@
     "lower_non-critical_threshold_raw": 136,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Temp"
   },
@@ -2657,10 +2683,7 @@
     "b": 384,
     "accuracy": 194,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": true,
@@ -2679,6 +2702,11 @@
     "lower_non-critical_threshold_raw": 136,
     "positive-going_threshold_hysteresis_value": 1,
     "negative-going_threshold_hysteresis_value": 1,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Temp"
   },
@@ -2806,8 +2834,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -2948,8 +2976,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3090,8 +3118,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3232,8 +3260,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3374,8 +3402,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3516,8 +3544,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3658,8 +3686,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3800,8 +3828,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -3942,8 +3970,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4084,8 +4112,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4226,8 +4254,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4368,8 +4396,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4510,8 +4538,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4652,8 +4680,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4794,8 +4822,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -4936,8 +4964,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5078,8 +5106,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5220,8 +5248,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5362,8 +5390,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5504,8 +5532,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5646,8 +5674,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5788,8 +5816,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -5930,8 +5958,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6072,8 +6100,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6214,8 +6242,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6356,8 +6384,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6498,8 +6526,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6640,8 +6668,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6782,8 +6810,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -6924,8 +6952,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7066,8 +7094,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7208,8 +7236,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7350,8 +7378,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7492,8 +7520,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7634,8 +7662,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7830,8 +7858,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -7972,8 +8000,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8114,8 +8142,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8256,8 +8284,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8398,8 +8426,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8540,8 +8568,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8682,8 +8710,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8824,8 +8852,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -8966,8 +8994,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9108,8 +9136,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9250,8 +9278,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9392,8 +9420,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9534,8 +9562,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9676,8 +9704,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9818,8 +9846,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -9960,8 +9988,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -10102,8 +10130,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 12,
       "sharing": "same",
@@ -10244,8 +10272,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 12,
       "sharing": "same",
@@ -10422,8 +10450,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -10564,8 +10592,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -10706,8 +10734,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -10848,8 +10876,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -10990,8 +11018,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -11132,8 +11160,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -11281,10 +11309,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": -2,
     "b_exp": 0,
     "has_normal_min": false,
@@ -11303,6 +11328,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 0,
     "negative-going_threshold_hysteresis_value": 0,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 100,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Current 1"
   },
@@ -11437,10 +11467,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": -2,
     "b_exp": 0,
     "has_normal_min": false,
@@ -11459,6 +11486,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 0,
     "negative-going_threshold_hysteresis_value": 0,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 100,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Current 2"
   },
@@ -11593,10 +11625,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": false,
@@ -11615,6 +11644,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 0,
     "negative-going_threshold_hysteresis_value": 0,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Voltage 1"
   },
@@ -11749,10 +11783,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": false,
@@ -11771,6 +11802,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 0,
     "negative-going_threshold_hysteresis_value": 0,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Voltage 2"
   },
@@ -11898,8 +11934,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -12040,8 +12076,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -12182,8 +12218,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -12331,10 +12367,7 @@
     "b": 0,
     "accuracy": 0,
     "accuracy_exp": 0,
-    "sensor_direction": {
-      "code": 0,
-      "value": "unspecified"
-    },
+    "sensor_direction": "unspecified",
     "r_exp": 0,
     "b_exp": 0,
     "has_normal_min": false,
@@ -12353,6 +12386,11 @@
     "lower_non-critical_threshold_raw": 0,
     "positive-going_threshold_hysteresis_value": 0,
     "negative-going_threshold_hysteresis_value": 0,
+    "reserved": [
+      0,
+      0
+    ],
+    "oem": 0,
     "device_id_fmt": "8-bit-ascii",
     "device_id": "Pwr Consumption"
   },
@@ -12480,8 +12518,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -12622,8 +12660,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -12764,8 +12802,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -12906,8 +12944,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -13048,8 +13086,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -13190,8 +13228,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -13332,8 +13370,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -13474,8 +13512,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -13616,8 +13654,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -13758,8 +13796,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -13900,8 +13938,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14042,8 +14080,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14184,8 +14222,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14326,8 +14364,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14468,8 +14506,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14610,8 +14648,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14752,8 +14790,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -14894,8 +14932,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15036,8 +15074,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15178,8 +15216,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15320,8 +15358,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15462,8 +15500,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15604,8 +15642,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15746,8 +15784,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -15888,8 +15926,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16030,8 +16068,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16172,8 +16210,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16314,8 +16352,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16456,8 +16494,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16598,8 +16636,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16740,8 +16778,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -16882,8 +16920,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17024,8 +17062,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17166,8 +17204,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17308,8 +17346,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17450,8 +17488,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17592,8 +17630,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17734,8 +17772,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -17876,8 +17914,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18018,8 +18056,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18160,8 +18198,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18302,8 +18340,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18444,8 +18482,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18586,8 +18624,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18728,8 +18766,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -18870,8 +18908,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19012,8 +19050,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19154,8 +19192,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19296,8 +19334,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19438,8 +19476,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19580,8 +19618,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19722,8 +19760,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -19864,8 +19902,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -20006,8 +20044,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -20148,8 +20186,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -20290,8 +20328,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -20432,8 +20470,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -20574,8 +20612,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 15,
       "sharing": "same",
@@ -20716,8 +20754,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 15,
       "sharing": "same",
@@ -20858,8 +20896,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 2,
       "sharing": "same",
@@ -21000,8 +21038,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21142,8 +21180,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21284,8 +21322,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21426,8 +21464,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21568,8 +21606,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21710,8 +21748,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21852,8 +21890,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -21994,8 +22032,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22136,8 +22174,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22278,8 +22316,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22420,8 +22458,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22562,8 +22600,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22704,8 +22742,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22846,8 +22884,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -22988,8 +23026,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "increments",
@@ -23130,8 +23168,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -23272,8 +23310,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -23414,8 +23452,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -23556,8 +23594,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -23738,8 +23776,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -23916,8 +23954,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -24058,8 +24096,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -24200,8 +24238,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -24342,8 +24380,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "alpha",
       "share_count": 1,
       "sharing": "same",
@@ -24484,8 +24522,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",
@@ -24626,8 +24664,8 @@
     },
     "base_unit": "unspecified",
     "modifier_unit": 0,
+    "sensor_direction": "unspecified",
     "sensor_record_sharing": {
-      "sensor_direction": "unspecified",
       "modifier_type": "numeric",
       "share_count": 1,
       "sharing": "same",

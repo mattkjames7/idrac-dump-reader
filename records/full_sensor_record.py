@@ -2,9 +2,12 @@ from .common import int_to_bool_array, read_u16, signed_nibble
 from .decode_device_id import decode_device_id
 from .events import event_reading_type
 from .sensors import (
+  get_linearization,
   get_sensor_capabilities,
   get_sensor_units,
   read_record_key_bytes,
+  sensor_initialization,
+  sensor_threashold_reading_masks,
   sensor_type
 )
 
@@ -18,19 +21,7 @@ def full_sensor_record_body_bytes(data):
   out["physical"] = (instance >> 7) == 0  # or logical
   out["number"] = instance & 0x7f
 
-  sensor_init = data.next()[0]
-  out["initialization"] = {
-    "settable": (sensor_init & 0b10000000) >> 7,
-    "scanning": (sensor_init & 0b01000000) >> 6,
-    "events": (sensor_init & 0b00100000) >> 5,
-    "thresholds": (sensor_init & 0b00010000) >> 4,
-    "hysteresis": (sensor_init & 0b00001000) >> 3,
-    "sensor_type": (sensor_init & 0b00000100) >> 2,
-    "default_state": {
-      "generation": (sensor_init & 0b00000010) >> 1,
-        "scanning": (sensor_init & 0b00000001)
-    }
-  }
+  out["initialization"] = sensor_initialization(data.next()[0])
 
   value = data.next()[0]
   out["capabilities"] = get_sensor_capabilities(value)
@@ -47,58 +38,12 @@ def full_sensor_record_body_bytes(data):
   }
 
   is_threshold_based = out["reading_type"]["class"] == "threshold"
-  value = read_u16(data) & 0b0111_1111_1111_1111
-  mask = int_to_bool_array(value, 16)
-
-  if is_threshold_based:
-    out["lower_threshold_reading_mask"] = mask[1:4]
-    out["threshold_assertion_mask"] = mask[4:]
-  else:
-    out["assertion_event_mask"] = mask[1:]
-
-  value = read_u16(data) & 0b0111_1111_1111_1111
-  mask = int_to_bool_array(value, 16)
-  if is_threshold_based:
-    out["upper_threshold_reading_mask"] = mask[1:4]
-    out["threshold_deassertion_mask"] = mask[4:]
-  else:
-    out["deassertion_event_mask"] = mask[1:]
-
-  value = read_u16(data) & 0b0111_1111_1111_1111
-  mask = int_to_bool_array(value, 16)
-  if is_threshold_based:
-    out["settable_threshold_mask"] = mask[2:8]
-    out["threshold_readable_mask"] = mask[10:]
-  else:
-    out["read_mask"] = mask[1:]
+  out.update(sensor_threashold_reading_masks(data, is_threshold_based))
 
   values = data.next(3)
   out.update(get_sensor_units(values))
 
-  LINEARIZATION = {
-      0x00: "linear",
-      0x01: "ln",
-      0x02: "log10",
-      0x03: "log2",
-      0x04: "exp",
-      0x05: "exp10",
-      0x06: "exp2",
-      0x07: "reciprocal",
-      0x08: "square",
-      0x09: "cube",
-      0x0A: "sqrt",
-      0x0B: "cube_root",
-  }
-  value = data.next()[0] & 0b01111111
-  if value in LINEARIZATION:
-      linearization = LINEARIZATION[value]
-  elif value == 0x70:
-      linearization = "non-linear"
-  elif 0x71 <= value <= 0x7F:
-      linearization = "OEM-defined"
-  else:
-      linearization = "reserved"
-  out["linearization"] = linearization
+  out["linearization"] = get_linearization(data.next()[0])
 
   value = data.next(2)  # is 10 bit signed + tolerance
   m_lsb = value[0]
@@ -117,19 +62,12 @@ def full_sensor_record_body_bytes(data):
   accuracy_ms = (value >> 4) << 6
   out["accuracy"] = accuracy_ms | accuracy_ls
   out["accuracy_exp"] = (value & 0b00001100) >> 2
-  direction_code = (value & 0b00000011)
-  direction_value = {
+  out["sensor_direction"] = {
     0: "unspecified",
     1: "input",
     2: "output",
     3: "reserved"
-    }[direction_code]
-  out["sensor_direction"] = {
-    "code": direction_code,
-    "value": direction_value
-  }
-
-
+  }[value & 0b00000011]
 
   value = data.next()[0]
   out["r_exp"] = signed_nibble(value >> 4)
@@ -141,46 +79,25 @@ def full_sensor_record_body_bytes(data):
   out["has_normal_max"] = bool((value & 0b00000010) >> 1)
   out["has_nominal_reading"] = bool(value & 0b00000001)
 
-  value = data.next()[0]
-  out["nominal_reading_raw"] = value
+  out["nominal_reading_raw"] = data.next()[0]
+  out["normal_maximum_raw"] = data.next()[0]
+  out["normal_minimum_raw"] = data.next()[0]
+  out["sensor_maximum_raw"] = data.next()[0]
+  out["sensor_minimum_raw"] = data.next()[0]
+  out["upper_non-recoverable_threshold_raw"] = data.next()[0]
+  out["upper_critical_threshold_raw"] = data.next()[0]
+  out["upper_non-critical_threshold_raw"] = data.next()[0]
+  out["lower_non-recoverable_threshold_raw"] = data.next()[0]
+  out["lower_critical_threshold_raw"] = data.next()[0]
+  out["lower_non-critical_threshold_raw"] = data.next()[0]
+  out["positive-going_threshold_hysteresis_value"] = data.next()[0]
+  out["negative-going_threshold_hysteresis_value"] = data.next()[0]
 
-  value = data.next()[0]
-  out["normal_maximum_raw"] = value
+  #  reserved
+  out["reserved"] = data.next(2)
 
-  value = data.next()[0]
-  out["normal_minimum_raw"] = value
-
-  value = data.next()[0]
-  out["sensor_maximum_raw"] = value
-
-  value = data.next()[0]
-  out["sensor_minimum_raw"] = value
-
-  value = data.next()[0]
-  out["upper_non-recoverable_threshold_raw"] = value
-
-  value = data.next()[0]
-  out["upper_critical_threshold_raw"] = value
-
-  value = data.next()[0]
-  out["upper_non-critical_threshold_raw"] = value
-
-  value = data.next()[0]
-  out["lower_non-recoverable_threshold_raw"] = value
-
-  value = data.next()[0]
-  out["lower_critical_threshold_raw"] = value
-
-  value = data.next()[0]
-  out["lower_non-critical_threshold_raw"] = value
-
-  value = data.next()[0]
-  out["positive-going_threshold_hysteresis_value"] = value
-
-  value = data.next()[0]
-  out["negative-going_threshold_hysteresis_value"] = value
-
-  _ = data.next(3)  # 2 reserved values + OEM value
+  # OEM
+  out["oem"] = data.next()[0]
 
   out["device_id_fmt"], out["device_id"] = decode_device_id(data)
 

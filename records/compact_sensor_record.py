@@ -5,6 +5,8 @@ from .sensors import (
   get_sensor_capabilities,
   get_sensor_units,
   read_record_key_bytes,
+  sensor_initialization,
+  sensor_threashold_reading_masks,
   sensor_type
 )
 
@@ -25,19 +27,7 @@ def compact_sensor_record_body(data):
   }
 
   # 11 sensor initialization
-  value = data.next()[0]
-  out["initialization"] = {
-    "settable": (value & 0b10000000) >> 7,
-    "scanning": (value & 0b01000000) >> 6,
-    "events": (value & 0b00100000) >> 5,
-    "thresholds": (value & 0b00010000) >> 4,
-    "hysteresis": (value & 0b00001000) >> 3,
-    "sensor_type": (value & 0b00000100) >> 2,
-    "default_state": {
-      "generation": (value & 0b00000010) >> 1,
-      "scanning": (value & 0b00000001)
-    }
-  }
+  out["initialization"] = sensor_initialization(data.next()[0])
 
   # 12 capabilities
   value = data.next()[0]
@@ -58,32 +48,7 @@ def compact_sensor_record_body(data):
 
   # 15/16 asertion event maske / lower threshold reading mask
   is_threshold_based = out["reading_type"]["class"] == "threshold"
-  value = read_u16(data) & 0b0111_1111_1111_1111
-  mask = int_to_bool_array(value, 16)
-
-  if is_threshold_based:
-    out["lower_threshold_reading_mask"] = mask[1:4]
-    out["threshold_assertion_mask"] = mask[4:]
-  else:
-    out["assertion_event_mask"] = mask[1:]
-
-  # 17/18 Deassertion Event Mask / Upper Threshold Reading Mask
-  value = read_u16(data) & 0b0111_1111_1111_1111
-  mask = int_to_bool_array(value, 16)
-  if is_threshold_based:
-    out["upper_threshold_reading_mask"] = mask[1:4]
-    out["threshold_deassertion_mask"] = mask[4:]
-  else:
-    out["deassertion_event_mask"] = mask[1:]
-
-  # 19/20 Discrete Reading Mask / Settable Threshold Mask, Readable Threshold Mask
-  value = read_u16(data) & 0b0111_1111_1111_1111
-  mask = int_to_bool_array(value, 16)
-  if is_threshold_based:
-    out["settable_threshold_mask"] = mask[2:8]
-    out["threshold_readable_mask"] = mask[10:]
-  else:
-    out["read_mask"] = mask[1:]
+  out.update(sensor_threashold_reading_masks(data, is_threshold_based))
 
   # 21, 22 and 23: Sensor units 1, 2 base unit, 3 modifier unit
   values = data.next(3)
@@ -91,13 +56,13 @@ def compact_sensor_record_body(data):
 
   # 24, 25 sensor record sharing, sensor direction
   values = data.next(2)
+  out["sensor_direction"] = {
+    0: "unspecified",
+    1: "input",
+    2: "output",
+    3: "reserved"
+  }[values[0] >> 6]
   out["sensor_record_sharing"] = {
-    "sensor_direction": {
-      0: "unspecified",
-      1: "input",
-      2: "output",
-      3: "reserved"
-    }[values[0] >> 6],
     "modifier_type": {
       0: "numeric",
       1: "alpha"
