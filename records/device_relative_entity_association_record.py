@@ -14,7 +14,6 @@ def read_device_relative_entity_association_block(
 
   # Contained Entity X Device Address
   value = data.next()[0]
-  device_relative = value == 0
   address = value >> 1
 
   # Contained Entity X Device Channel
@@ -22,10 +21,9 @@ def read_device_relative_entity_association_block(
   out[f"contained_entity_{contained_number}_device"] = {
     "address":  address,
     "channel":  channel,
-    "device-relative": device_relative
+    "device-relative": channel == 0 and address == 0
   }
 
-  record_type = out["flags"]["type"]
   # Contained Entity X / Range X Entity ID
   value = data.next()[0]
   if record_type == "list":

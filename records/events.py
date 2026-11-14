@@ -62,7 +62,7 @@ def interrupt_type(value):
   if (value >=0) &  (value <= 0x0f):
     return f"IRQ {value}"
   elif (value >= 0x10) & (value <= 0x13):
-    letter = chr(ord('a') + 0).upper()
+    letter = chr(ord('a') + value - 0x10).upper()
     return f"PCI {letter}"
   elif value == 0x14:
     return "SMI"

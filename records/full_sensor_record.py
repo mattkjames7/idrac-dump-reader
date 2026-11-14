@@ -28,7 +28,8 @@ def full_sensor_record_body_bytes(data):
 
   value = data.next()[0]
   out["type"] = {
-    "code": sensor_type(value)
+    "code": value,
+    "name": sensor_type(value)
   }
 
   value = data.next()[0]
@@ -106,7 +107,7 @@ def full_sensor_record_body_bytes(data):
 
 def full_sensor_record(data):
 
-  out = read_record_key_bytes(data)
+  out = read_record_key_bytes(data, include_fru=False)
   out.update(full_sensor_record_body_bytes(data))
 
   return out

@@ -87,9 +87,9 @@ def decode_device_id(data):
     if fmt == "unicode":
       device_id = decode_unicode(str_bytes)
     elif fmt == "bcd-plus":
-      device_id = decode_bcd(str_bytes)
+      device_id = decode_bcd(str_bytes)[:str_length]
     elif fmt == "6-bit-ascii":
-      device_id = decode_6bit_ascii(str_bytes)
+      device_id = decode_6bit_ascii(str_bytes)[:str_length]
     else:
       device_id = decode_8bit_ascii(str_bytes)
 

@@ -157,17 +157,18 @@ def get_sensor_unit_type(code):
   return units.get(code, None)
 
 
-def get_sensor_units(values):
+def get_sensor_units(values, compact=False):
 
   out = {}
 
-  format_value = values[0] >> 6
-  format_name = {
-    0: "unsigned",
-    1: "signed, 1's complement",
-    2: "signed, 2's complement",
-    3: "not numeric"
-  }[format_value]
+  if not compact:
+    format_value = values[0] >> 6
+    format_name = {
+      0: "unsigned",
+      1: "signed, 1's complement",
+      2: "signed, 2's complement",
+      3: "not numeric"
+    }[format_value]
 
   rate_value = (values[0] & 0b00111111) >> 3
   rate_unit = {
@@ -190,10 +191,6 @@ def get_sensor_units(values):
   }[mod_value]
 
   out["units"] = {
-    "format": {
-      "code": format_value,
-      "name": format_name
-    },
     "rate": {
       "code": rate_value,
       "unit": rate_unit
@@ -205,13 +202,21 @@ def get_sensor_units(values):
     "percentage": bool(values[0] & 0b00000001)
   }
 
+  if compact:
+    out["units"]["reserved"] = values[0] >> 6
+  else:
+    out["units"]["format"] = {
+      "code": format_value,
+      "name": format_name
+    },
+
   out["base_unit"] = get_sensor_unit_type(values[1])
-  out["modifier_unit"] = values[2]
+  out["modifier_unit"] = get_sensor_unit_type(values[2])
   return out
 
 
 
-def get_sensor_capabilities(value):
+def get_sensor_capabilities(value, compact=False):
 
   hyst_value = (value & 0b00110000) >> 4
   hysteresis = {
@@ -222,9 +227,9 @@ def get_sensor_capabilities(value):
   }
   thresh_value = (value & 0b00001100) >> 2
   threshold = {
-    "supported": thresh_value != 0,
-    "readable": thresh_value in (1, 2),
-    "settable": thresh_value == 2,
+    "supported": thresh_value not in (0,2) if compact else (0,),
+    "readable": thresh_value in ((1,) if compact else (1, 2)),
+    "settable": (thresh_value == 2) & (compact == False),
     "fixed": thresh_value == 3
   }
   mess_value = (value & 0b00000011)
@@ -243,7 +248,7 @@ def get_sensor_capabilities(value):
   return out
 
 
-def read_record_key_bytes(data):
+def read_record_key_bytes(data, include_fru=True):
 
   out = {}
 
@@ -259,9 +264,8 @@ def read_record_key_bytes(data):
   # 7 sensor owner LUN
   value = data.next()[0]
   out["channel_number"] = value >> 4
-  fru_inventory_owner = (value >> 2) & 0b0011
-  key = "reserved" if fru_inventory_owner else "fru_inventory_device_owner"
-  out[key] = (value & 0b0000_1100) >> 2
+  key = "reserved" if not include_fru else "fru_inventory_device_owner"
+  out[key] = (value & 0b0000_1100) >> 2 if include_fru else 0
   out["sensor_owner_lun"] = value & 0b0000_0011
 
   # 8 sensor number
@@ -270,12 +274,13 @@ def read_record_key_bytes(data):
   return out
 
 
-def sensor_initialization(value):
+def sensor_initialization(value, compact=False):
+  threshold_key = "reserved" if compact else "thresholds"
   return {
     "settable": (value & 0b10000000) >> 7,
     "scanning": (value & 0b01000000) >> 6,
     "events": (value & 0b00100000) >> 5,
-    "thresholds": (value & 0b00010000) >> 4,
+    threshold_key: 0 if compact else (value & 0b00010000) >> 4,
     "hysteresis": (value & 0b00001000) >> 3,
     "sensor_type": (value & 0b00000100) >> 2,
     "default_state": {

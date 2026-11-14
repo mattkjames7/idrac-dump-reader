@@ -18,7 +18,11 @@ def event_only_record_body(data):
   }
 
   # 11 - sensor type
-  out["sensor_type"] = sensor_type(data.next()[0])
+  value = data.next()[0]
+  out["sensor_type"] = {
+    "code": value,
+    "name": sensor_type(value)
+  }
 
   # 12 - event type reading code
   out["event_reading_type_code"] = event_reading_type(data.next()[0])

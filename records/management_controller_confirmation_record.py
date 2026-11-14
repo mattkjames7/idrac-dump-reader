@@ -23,7 +23,8 @@ def management_controller_confirmation_body(data):
   major = data.next()[0] & 0b0111_1111
 
   # 10 - firmware minor revision
-  minor = data.next()[0]
+  value = data.next()[0]
+  minor = f"{value >> 4}{value & 0x0f}"
 
   out["firmware_revision"] = f"{major}.{minor}"
 

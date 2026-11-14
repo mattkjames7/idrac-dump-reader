@@ -28,9 +28,10 @@ def entity_association_record_body(data, record_type):
   values = data.next(6)
   if record_type == "list":
     for i, j in enumerate([2, 3, 4]):
-      unspecified = values[i] == 0
-      out[f"contained_entity_{j}"] = values[i]
-      out[f"contained_entity_{j}_instance"] = 0 if unspecified else values[i+1]
+      offset = i * 2
+      unspecified = values[offset] == 0
+      out[f"contained_entity_{j}"] = values[offset]
+      out[f"contained_entity_{j}_instance"] = 0 if unspecified else values[offset+1]
   else:
     unspecified = values[0] == 0
     out["range_1_entity"] = values[0]
@@ -41,7 +42,6 @@ def entity_association_record_body(data, record_type):
     out["range_2_first_entity_instance"] = 0 if unspecified else values[3]
 
     unspecified = values[4] == 0
-    out["range_2_entity"] = values[4]
     out["range_2_last_entity_instance"] = 0 if unspecified else values[5]
 
   return out

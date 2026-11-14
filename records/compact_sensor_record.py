@@ -27,7 +27,7 @@ def compact_sensor_record_body(data):
   }
 
   # 11 sensor initialization
-  out["initialization"] = sensor_initialization(data.next()[0])
+  out["initialization"] = sensor_initialization(data.next()[0], compact=True)
 
   # 12 capabilities
   value = data.next()[0]
@@ -36,7 +36,8 @@ def compact_sensor_record_body(data):
   # 13 sensor type
   value = data.next()[0]
   out["type"] = {
-    "code": sensor_type(value)
+    "code": value,
+    "name": sensor_type(value)
   }
 
   # 14 event / reading type code
@@ -52,7 +53,7 @@ def compact_sensor_record_body(data):
 
   # 21, 22 and 23: Sensor units 1, 2 base unit, 3 modifier unit
   values = data.next(3)
-  out.update(get_sensor_units(values))
+  out.update(get_sensor_units(values, compact=True))
 
   # 24, 25 sensor record sharing, sensor direction
   values = data.next(2)
