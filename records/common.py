@@ -30,3 +30,14 @@ def bytes_to_guid(values):
     if i < len(ranges) - 1:
       chars.append("-")
   return "".join(chars)
+
+
+def decode_raw(raw, format_value):
+
+  negative = raw & 0b1000_000
+  if format_value == "unsigned":
+    return raw
+  elif "1's complement"
+
+
+def raw_to_real_value(raw, M, B, B_exp, R_exp, format_value):
