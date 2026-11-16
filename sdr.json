@@ -9,7 +9,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 114,
-    "entity_id": 0,
+    "entity_id": "unspecified",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -151,7 +151,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 115,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -511,7 +511,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 48,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -673,7 +673,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 49,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -835,7 +835,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 50,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -997,7 +997,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 51,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -1159,7 +1159,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 52,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -1321,7 +1321,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 53,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -1483,7 +1483,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 4,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -1645,7 +1645,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 253,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -1807,7 +1807,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 241,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -1969,7 +1969,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 242,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -2131,7 +2131,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 243,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -2293,7 +2293,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 1,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -2455,7 +2455,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 14,
-    "id": 3,
+    "entity_id": "processor",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -2617,7 +2617,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 15,
-    "id": 3,
+    "entity_id": "processor",
     "physical": true,
     "number": 2,
     "initialization": {
@@ -2776,7 +2776,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 113,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -2918,7 +2918,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 35,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -3060,7 +3060,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 36,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -3202,7 +3202,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 25,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -3344,7 +3344,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 26,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -3486,7 +3486,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 80,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -3628,7 +3628,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 112,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -3770,7 +3770,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 81,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -3912,7 +3912,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 73,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -4054,7 +4054,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 64,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -4196,7 +4196,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 65,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -4338,7 +4338,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 34,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -4480,7 +4480,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 37,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -4622,7 +4622,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 39,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -4764,7 +4764,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 246,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -4906,7 +4906,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 21,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -5048,7 +5048,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 22,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -5190,7 +5190,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 33,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -5332,7 +5332,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 67,
-    "entity_id": 10,
+    "entity_id": "power supply",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -5474,7 +5474,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 43,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -5616,7 +5616,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 38,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -5758,7 +5758,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 27,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -5900,7 +5900,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 30,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -6042,7 +6042,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 46,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -6184,7 +6184,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 28,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -6326,7 +6326,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 47,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -6468,7 +6468,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 76,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -6610,7 +6610,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 31,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -6752,7 +6752,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 32,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -6894,7 +6894,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 29,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -7036,7 +7036,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 74,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -7178,7 +7178,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 72,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -7320,7 +7320,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 96,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -7462,7 +7462,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 97,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -7604,7 +7604,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 117,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -7800,7 +7800,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 100,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -7942,7 +7942,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 40,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8084,7 +8084,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 44,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8226,7 +8226,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 45,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8368,7 +8368,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 247,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8510,7 +8510,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 248,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8652,7 +8652,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 249,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8794,7 +8794,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 20,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -8936,7 +8936,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 66,
-    "entity_id": 10,
+    "entity_id": "power supply",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9078,7 +9078,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 144,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9220,7 +9220,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 145,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9362,7 +9362,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 146,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9504,7 +9504,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 147,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9646,7 +9646,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 148,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9788,7 +9788,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 149,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -9930,7 +9930,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 150,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -10072,7 +10072,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 192,
-    "entity_id": 32,
+    "entity_id": "memory device",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -10214,7 +10214,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 204,
-    "entity_id": 32,
+    "entity_id": "memory device",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -10392,7 +10392,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 250,
-    "entity_id": 12,
+    "entity_id": "front panel board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -10534,7 +10534,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 101,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -10676,7 +10676,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 84,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -10818,7 +10818,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 85,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -10960,7 +10960,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 86,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -11102,7 +11102,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 87,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 4
@@ -11247,7 +11247,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 106,
-    "id": 10,
+    "entity_id": "power supply",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -11409,7 +11409,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 107,
-    "id": 10,
+    "entity_id": "power supply",
     "physical": true,
     "number": 2,
     "initialization": {
@@ -11571,7 +11571,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 108,
-    "id": 10,
+    "entity_id": "power supply",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -11733,7 +11733,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 109,
-    "id": 10,
+    "entity_id": "power supply",
     "physical": true,
     "number": 2,
     "initialization": {
@@ -11892,7 +11892,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 116,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -12034,7 +12034,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 98,
-    "entity_id": 10,
+    "entity_id": "power supply",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -12176,7 +12176,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 99,
-    "entity_id": 10,
+    "entity_id": "power supply",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -12321,7 +12321,7 @@
     ],
     "sensor_owner_lun": 0,
     "sensor_number": 119,
-    "id": 7,
+    "entity_id": "system board",
     "physical": true,
     "number": 1,
     "initialization": {
@@ -12480,7 +12480,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 118,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -12622,7 +12622,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 244,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -12764,7 +12764,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 245,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -12906,7 +12906,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 120,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -13048,7 +13048,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 48,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -13190,7 +13190,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 49,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -13332,7 +13332,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 53,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -13474,7 +13474,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 54,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -13616,7 +13616,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 1,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -13758,7 +13758,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 2,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -13900,7 +13900,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 3,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14042,7 +14042,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 4,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14184,7 +14184,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 5,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14326,7 +14326,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 6,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14468,7 +14468,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 7,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14610,7 +14610,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 8,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14752,7 +14752,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 10,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -14894,7 +14894,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 11,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15036,7 +15036,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 12,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15178,7 +15178,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 13,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15320,7 +15320,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 17,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15462,7 +15462,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 18,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15604,7 +15604,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 19,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15746,7 +15746,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 20,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -15888,7 +15888,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 21,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16030,7 +16030,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 22,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16172,7 +16172,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 23,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16314,7 +16314,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 24,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16456,7 +16456,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 56,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16598,7 +16598,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 58,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16740,7 +16740,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 25,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -16882,7 +16882,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 26,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17024,7 +17024,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 46,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17166,7 +17166,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 27,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17308,7 +17308,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 28,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17450,7 +17450,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 29,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17592,7 +17592,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 30,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17734,7 +17734,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 31,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -17876,7 +17876,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 55,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18018,7 +18018,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 32,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18160,7 +18160,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 43,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18302,7 +18302,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 33,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18444,7 +18444,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 34,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18586,7 +18586,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 113,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18728,7 +18728,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 38,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -18870,7 +18870,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 44,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19012,7 +19012,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 47,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19154,7 +19154,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 50,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19296,7 +19296,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 51,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19438,7 +19438,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 57,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19580,7 +19580,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 60,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19722,7 +19722,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 59,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -19864,7 +19864,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 39,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20006,7 +20006,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 45,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20148,7 +20148,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 52,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20290,7 +20290,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 40,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20432,7 +20432,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 42,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20574,7 +20574,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 160,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20716,7 +20716,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 175,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -20858,7 +20858,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 190,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -21000,7 +21000,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 224,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -21142,7 +21142,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 225,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -21284,7 +21284,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 226,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -21426,7 +21426,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 227,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -21568,7 +21568,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 228,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -21710,7 +21710,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 229,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -21852,7 +21852,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 88,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -21994,7 +21994,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 89,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -22136,7 +22136,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 90,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -22278,7 +22278,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 91,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -22420,7 +22420,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 92,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -22562,7 +22562,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 93,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 3
@@ -22704,7 +22704,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 94,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 4
@@ -22846,7 +22846,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 95,
-    "entity_id": 26,
+    "entity_id": "Disk Drive Bay",
     "entity_instance": {
       "type": "physical",
       "number": 4
@@ -22988,7 +22988,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 102,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -23130,7 +23130,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 104,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 2
@@ -23272,7 +23272,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 105,
-    "entity_id": 11,
+    "entity_id": "add-in card",
     "entity_instance": {
       "type": "physical",
       "number": 4
@@ -23414,7 +23414,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 78,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -23556,7 +23556,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 79,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -23738,7 +23738,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 41,
-    "entity_id": 7,
+    "entity_id": "system board",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -23916,7 +23916,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 61,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -24058,7 +24058,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 62,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -24200,7 +24200,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 63,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -24342,7 +24342,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 64,
-    "entity_id": 34,
+    "entity_id": "System Firmware",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -24484,7 +24484,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 251,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 1
@@ -24626,7 +24626,7 @@
     "fru_inventory_device_owner": 0,
     "sensor_owner_lun": 0,
     "sensor_number": 252,
-    "entity_id": 3,
+    "entity_id": "processor",
     "entity_instance": {
       "type": "physical",
       "number": 2

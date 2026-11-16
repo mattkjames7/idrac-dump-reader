@@ -1,5 +1,6 @@
 from .common import int_to_bool_array, read_u16
 from .decode_device_id import decode_device_id
+from .devices import entity_id_codes
 from .events import event_reading_type
 from .sensors import (
   get_sensor_capabilities,
@@ -17,7 +18,7 @@ def compact_sensor_record_body(data):
   out = {}
 
   # 9 entity ID -> 43-13
-  out["entity_id"] = data.next()[0]  # TODO
+  out["entity_id"] = entity_id_codes(data.next()[0])
 
   # 10 entity instance
   value = data.next()[0]

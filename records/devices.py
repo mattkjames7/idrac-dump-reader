@@ -74,6 +74,7 @@ def device_type_code(values):
 
 
 def entity_id_codes(value):
+  """Table 43-13, pages 580-581"""
 
   entities = {
     0x00: "unspecified",

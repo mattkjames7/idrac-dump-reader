@@ -1,4 +1,5 @@
 from .decode_device_id import decode_device_id
+from .devices import entity_id_codes
 from .events import event_reading_type
 from .sensors import read_record_key_bytes, sensor_type
 
@@ -8,7 +9,7 @@ def event_only_record_body(data):
   out = {}
 
   # 9 - entity ID
-  out["entity_id"] = data.next()[0]
+  out["entity_id"] = entity_id_codes(data.next()[0])
 
   # 10 entity instance
   value = data.next()[0]
