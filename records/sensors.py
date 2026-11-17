@@ -327,24 +327,74 @@ def sensor_threashold_reading_masks(data, is_threshold_based):
   mask = int_to_bool_array(value, 16)
 
   if is_threshold_based:
-    out["lower_threshold_reading_mask"] = mask[1:4]
-    out["threshold_assertion_mask"] = mask[4:]
+    lower_fields = ["non-recoverable", "critical", "non-critical"]
+    out["lower_threshold_reading_mask"] = {
+      k:v for k,v in zip(lower_fields, mask[1:4])
+    }
+    mask_fields = [
+      "upper_non-recoverable_high",
+      "upper_non-recoverable_low",
+      "upper_crititcal_high",
+      "upper_critical_low",
+      "upper_non-critical_high",
+      "upper_non-critical_low",
+      "lower_non-recoverable_high",
+      "lower_non-recoverable_low",
+      "lower_crititcal_high",
+      "lower_critical_low",
+      "lower_non-critical_high",
+      "lower_non-critical_low"
+    ]
+    out["threshold_assertion_mask"] = {
+      k:v for k,v in zip(mask_fields, mask[4:])
+    }
   else:
     out["assertion_event_mask"] = mask[1:]
 
   value = read_u16(data) & 0b0111_1111_1111_1111
   mask = int_to_bool_array(value, 16)
   if is_threshold_based:
-    out["upper_threshold_reading_mask"] = mask[1:4]
-    out["threshold_deassertion_mask"] = mask[4:]
+    upper_fields = ["non-recoverable", "critical", "non-critical"]
+    out["upper_threshold_reading_mask"] = {
+      k:v for k,v in zip(upper_fields, mask[1:4])
+    }
+    mask_fields = [
+      "upper_non-recoverable_high",
+      "upper_non-recoverable_low",
+      "upper_crititcal_high",
+      "upper_critical_low",
+      "upper_non-critical_high",
+      "upper_non-critical_low",
+      "lower_non-recoverable_high",
+      "lower_non-recoverable_low",
+      "lower_crititcal_high",
+      "lower_critical_low",
+      "lower_non-critical_high",
+      "lower_non-critical_low"
+    ]
+    out["threshold_deassertion_mask"] = {
+      k:v for k,v in zip(mask_fields, mask[4:])
+    }
   else:
     out["deassertion_event_mask"] = mask[1:]
 
   value = read_u16(data) & 0b0111_1111_1111_1111
   mask = int_to_bool_array(value, 16)
   if is_threshold_based:
-    out["settable_threshold_mask"] = mask[2:8]
-    out["threshold_readable_mask"] = mask[10:]
+    mask_fields = [
+      "upper_non-recoverable",
+      "upper_critical",
+      "upper_non-critical",
+      "lower_non-recoverable",
+      "lower_critical",
+      "lower_non-critical"
+    ]
+    out["threshold_settable_mask"] = {
+      k:v for k,v in zip(mask_fields, mask[2:8])
+    }
+    out["threshold_readable_mask"] = {
+      k:v for k,v in zip(mask_fields, mask[10:])
+    }
   else:
     out["read_mask"] = mask[1:]
 

@@ -54,7 +54,10 @@ def raw_to_real_value(raw, M, B, B_exp, R_exp, format_value):
 
 def raw_converter(M, B, B_exp, R_exp, format_value):
 
-  def convert(raw):
-    return raw_to_real_value(raw, M, B, B_exp, R_exp, format_value)
+  def convert(raw, convertable=True):
+    if convertable:
+      return raw_to_real_value(raw, M, B, B_exp, R_exp, format_value)
+    else:
+      return None
 
   return convert

@@ -558,60 +558,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -622,12 +622,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "RPM",
     "modifier_unit": "unspecified",
@@ -644,12 +642,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 84,
+    "nominal_reading": 10080,
     "normal_maximum_raw": 197,
+    "normal_maximum": 23640,
     "normal_minimum_raw": 139,
+    "normal_minimum": 16680,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 30600,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 255,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 255,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 3,
@@ -720,60 +724,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -784,12 +788,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "RPM",
     "modifier_unit": "unspecified",
@@ -806,12 +808,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 84,
+    "nominal_reading": 10080,
     "normal_maximum_raw": 197,
+    "normal_maximum": 23640,
     "normal_minimum_raw": 139,
+    "normal_minimum": 16680,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 30600,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 255,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 255,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 3,
@@ -882,60 +890,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -946,12 +954,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "RPM",
     "modifier_unit": "unspecified",
@@ -968,12 +974,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 84,
+    "nominal_reading": 10080,
     "normal_maximum_raw": 197,
+    "normal_maximum": 23640,
     "normal_minimum_raw": 139,
+    "normal_minimum": 16680,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 30600,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 255,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 255,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 3,
@@ -1044,60 +1056,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -1108,12 +1120,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "RPM",
     "modifier_unit": "unspecified",
@@ -1130,12 +1140,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 84,
+    "nominal_reading": 10080,
     "normal_maximum_raw": 197,
+    "normal_maximum": 23640,
     "normal_minimum_raw": 139,
+    "normal_minimum": 16680,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 30600,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 255,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 255,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 3,
@@ -1206,60 +1222,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -1270,12 +1286,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "RPM",
     "modifier_unit": "unspecified",
@@ -1292,12 +1306,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 56,
+    "nominal_reading": 6720,
     "normal_maximum_raw": 197,
+    "normal_maximum": 23640,
     "normal_minimum_raw": 139,
+    "normal_minimum": 16680,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 30600,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 255,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 255,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 3,
@@ -1368,60 +1388,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -1432,12 +1452,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "RPM",
     "modifier_unit": "unspecified",
@@ -1454,12 +1472,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 56,
+    "nominal_reading": 6720,
     "normal_maximum_raw": 197,
+    "normal_maximum": 23640,
     "normal_minimum_raw": 139,
+    "normal_minimum": 16680,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 30600,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 255,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 255,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 3,
@@ -1530,60 +1554,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      true,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      true,
-      true
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      true,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      true
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      true
-    ],
-    "threshold_readable_mask": [
-      false,
-      true,
-      true,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": true,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": true,
+      "non-critical": true
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": true,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": true,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": true
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": true
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": true,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -1594,12 +1618,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "degrees C",
     "modifier_unit": "unspecified",
@@ -1616,12 +1638,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 151,
+    "nominal_reading": 535,
     "normal_maximum_raw": 197,
+    "normal_maximum": 581,
     "normal_minimum_raw": 139,
+    "normal_minimum": 523,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 639,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 384,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 175,
+    "upper_critical_threshold": 559,
     "upper_non-critical_threshold_raw": 170,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 121,
@@ -1692,60 +1720,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": true,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -1756,12 +1784,10 @@
         "unit": null
       },
       "percentage": true,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "unspecified",
     "modifier_unit": "unspecified",
@@ -1778,12 +1804,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 10,
+    "nominal_reading": 10,
     "normal_maximum_raw": 102,
+    "normal_maximum": 102,
     "normal_minimum_raw": 10,
+    "normal_minimum": 10,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 255,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 102,
     "upper_critical_threshold_raw": 102,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 101,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -1854,60 +1886,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": true,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -1918,12 +1950,10 @@
         "unit": null
       },
       "percentage": true,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "unspecified",
     "modifier_unit": "unspecified",
@@ -1940,12 +1970,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 10,
+    "nominal_reading": 10,
     "normal_maximum_raw": 102,
+    "normal_maximum": 102,
     "normal_minimum_raw": 10,
+    "normal_minimum": 10,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 255,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 102,
     "upper_critical_threshold_raw": 102,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 101,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -2016,60 +2052,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": true,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -2080,12 +2116,10 @@
         "unit": null
       },
       "percentage": true,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "unspecified",
     "modifier_unit": "unspecified",
@@ -2102,12 +2136,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 10,
+    "nominal_reading": 10,
     "normal_maximum_raw": 102,
+    "normal_maximum": 102,
     "normal_minimum_raw": 10,
+    "normal_minimum": 10,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 255,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 102,
     "upper_critical_threshold_raw": 102,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 101,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -2178,60 +2218,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": true,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -2242,12 +2282,10 @@
         "unit": null
       },
       "percentage": true,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "unspecified",
     "modifier_unit": "unspecified",
@@ -2264,12 +2302,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 10,
+    "nominal_reading": 10,
     "normal_maximum_raw": 102,
+    "normal_maximum": 102,
     "normal_minimum_raw": 10,
+    "normal_minimum": 10,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 255,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 102,
     "upper_critical_threshold_raw": 102,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 101,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -2340,60 +2384,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      true,
-      true,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": true,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -2404,12 +2448,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "degrees C",
     "modifier_unit": "unspecified",
@@ -2426,12 +2468,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 151,
+    "nominal_reading": 535,
     "normal_maximum_raw": 197,
+    "normal_maximum": 581,
     "normal_minimum_raw": 139,
+    "normal_minimum": 523,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 639,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 384,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 203,
+    "upper_critical_threshold": 587,
     "upper_non-critical_threshold_raw": 198,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 131,
@@ -2502,60 +2550,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      true,
-      true,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": true,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -2566,12 +2614,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "degrees C",
     "modifier_unit": "unspecified",
@@ -2588,12 +2634,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 151,
+    "nominal_reading": 535,
     "normal_maximum_raw": 197,
+    "normal_maximum": 581,
     "normal_minimum_raw": 139,
+    "normal_minimum": 523,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 639,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 384,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 211,
+    "upper_critical_threshold": 595,
     "upper_non-critical_threshold_raw": 205,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 131,
@@ -2664,60 +2716,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      true,
-      true,
-      false,
-      true,
-      true
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": true,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": true,
+      "lower_non-critical": true
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -2728,12 +2780,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "degrees C",
     "modifier_unit": "unspecified",
@@ -2750,12 +2800,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 151,
+    "nominal_reading": 535,
     "normal_maximum_raw": 197,
+    "normal_maximum": 581,
     "normal_minimum_raw": 139,
+    "normal_minimum": 523,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 639,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 384,
     "upper_non-recoverable_threshold_raw": 255,
     "upper_critical_threshold_raw": 211,
+    "upper_critical_threshold": 595,
     "upper_non-critical_threshold_raw": 205,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 131,
@@ -11294,60 +11350,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -11358,12 +11414,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "Amps",
     "modifier_unit": "unspecified",
@@ -11380,12 +11434,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 0,
+    "nominal_reading": 0.0,
     "normal_maximum_raw": 0,
+    "normal_maximum": 0.0,
     "normal_minimum_raw": 0,
+    "normal_minimum": null,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 51.0,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0.0,
     "upper_non-recoverable_threshold_raw": 0,
     "upper_critical_threshold_raw": 0,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 0,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -11456,60 +11516,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -11520,12 +11580,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "Amps",
     "modifier_unit": "unspecified",
@@ -11542,12 +11600,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 0,
+    "nominal_reading": 0.0,
     "normal_maximum_raw": 0,
+    "normal_maximum": 0.0,
     "normal_minimum_raw": 0,
+    "normal_minimum": null,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 51.0,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0.0,
     "upper_non-recoverable_threshold_raw": 0,
     "upper_critical_threshold_raw": 0,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 0,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -11618,60 +11682,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -11682,12 +11746,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "Volts",
     "modifier_unit": "unspecified",
@@ -11704,12 +11766,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 0,
+    "nominal_reading": 0,
     "normal_maximum_raw": 0,
+    "normal_maximum": 0,
     "normal_minimum_raw": 0,
+    "normal_minimum": null,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 510,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 0,
     "upper_critical_threshold_raw": 0,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 0,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -11780,60 +11848,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": false,
+      "upper_critical_low": false,
+      "upper_non-critical_high": false,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": false,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -11844,12 +11912,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "Volts",
     "modifier_unit": "unspecified",
@@ -11866,12 +11932,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 0,
+    "nominal_reading": 0,
     "normal_maximum_raw": 0,
+    "normal_maximum": 0,
     "normal_minimum_raw": 0,
+    "normal_minimum": null,
     "sensor_maximum_raw": 255,
+    "sensor_maximum": 510,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 0,
     "upper_critical_threshold_raw": 0,
+    "upper_critical_threshold": null,
     "upper_non-critical_threshold_raw": 0,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,
@@ -12368,60 +12440,60 @@
       "category": "threshold",
       "class": "threshold"
     },
-    "lower_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_assertion_mask": [
-      false,
-      false,
-      true,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "upper_threshold_reading_mask": [
-      false,
-      false,
-      false
-    ],
-    "threshold_deassertion_mask": [
-      false,
-      false,
-      true,
-      false,
-      true,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-    "settable_threshold_mask": [
-      false,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
-    "threshold_readable_mask": [
-      false,
-      true,
-      true,
-      false,
-      false,
-      false
-    ],
+    "lower_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_assertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": true,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "upper_threshold_reading_mask": {
+      "non-recoverable": false,
+      "critical": false,
+      "non-critical": false
+    },
+    "threshold_deassertion_mask": {
+      "upper_non-recoverable_high": false,
+      "upper_non-recoverable_low": false,
+      "upper_crititcal_high": true,
+      "upper_critical_low": false,
+      "upper_non-critical_high": true,
+      "upper_non-critical_low": false,
+      "lower_non-recoverable_high": false,
+      "lower_non-recoverable_low": false,
+      "lower_crititcal_high": false,
+      "lower_critical_low": false,
+      "lower_non-critical_high": false,
+      "lower_non-critical_low": false
+    },
+    "threshold_settable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": false,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
+    "threshold_readable_mask": {
+      "upper_non-recoverable": false,
+      "upper_critical": true,
+      "upper_non-critical": true,
+      "lower_non-recoverable": false,
+      "lower_critical": false,
+      "lower_non-critical": false
+    },
     "units": {
       "rate": {
         "code": 0,
@@ -12432,12 +12504,10 @@
         "unit": null
       },
       "percentage": false,
-      "format": [
-        {
-          "code": 0,
-          "name": "unsigned"
-        }
-      ]
+      "format": {
+        "code": 0,
+        "name": "unsigned"
+      }
     },
     "base_unit": "Watts",
     "modifier_unit": "unspecified",
@@ -12454,12 +12524,18 @@
     "has_normal_max": true,
     "has_nominal_reading": true,
     "nominal_reading_raw": 47,
+    "nominal_reading": 658,
     "normal_maximum_raw": 48,
+    "normal_maximum": 672,
     "normal_minimum_raw": 44,
+    "normal_minimum": null,
     "sensor_maximum_raw": 254,
+    "sensor_maximum": 3556,
     "sensor_minimum_raw": 0,
+    "sensor_minimum": 0,
     "upper_non-recoverable_threshold_raw": 0,
     "upper_critical_threshold_raw": 87,
+    "upper_critical_threshold": 1218,
     "upper_non-critical_threshold_raw": 79,
     "lower_non-recoverable_threshold_raw": 0,
     "lower_critical_threshold_raw": 0,

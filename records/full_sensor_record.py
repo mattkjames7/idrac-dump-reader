@@ -103,19 +103,32 @@ def full_sensor_record_body_bytes(data):
 
   # 32-34 - nominal reading, min and max
   out["nominal_reading_raw"] = data.next()[0]
-  out["normal_maximum_raw"] = data.next()[0]
-  out["normal_minimum_raw"] = data.next()[0]
-  if out["has_nominal_reading"]:
-    out["nominal_reading"] = value_convert(out["nominal_reading_raw"])
+  out["nominal_reading"] = value_convert(out["nominal_reading_raw"], out["has_nominal_reading"])
 
+  out["normal_maximum_raw"] = data.next()[0]
+  out["normal_maximum"] = value_convert(out["normal_maximum_raw"], out["has_normal_max"])
+
+  out["normal_minimum_raw"] = data.next()[0]
+  out["normal_minimum"] = value_convert(out["normal_minimum_raw"], out["has_normal_min"])
 
   # 35-36 - sensor range
   out["sensor_maximum_raw"] = data.next()[0]
+  out["sensor_maximum"] = value_convert(out["sensor_maximum_raw"], out["units"]["format"]["code"] != 3)
+  
   out["sensor_minimum_raw"] = data.next()[0]
+  out["sensor_minimum"] = value_convert(out["sensor_minimum_raw"], out["units"]["format"]["code"] != 3)
 
   # 37-44 thresholds
   out["upper_non-recoverable_threshold_raw"] = data.next()[0]
   out["upper_critical_threshold_raw"] = data.next()[0]
+  out["upper_critical_threshold"] = value_convert(
+    out["upper_critical_threshold_raw"],
+    (
+      out["threshold_settable_mask"]["upper_critical"] |
+      out["threshold_readable_mask"]["upper_critical"] |
+      out["upper_threshold_reading_mask"]["critical"]
+    )
+  )
   out["upper_non-critical_threshold_raw"] = data.next()[0]
   out["lower_non-recoverable_threshold_raw"] = data.next()[0]
   out["lower_critical_threshold_raw"] = data.next()[0]
