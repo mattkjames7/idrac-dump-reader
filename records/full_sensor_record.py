@@ -114,12 +114,21 @@ def full_sensor_record_body_bytes(data):
   # 35-36 - sensor range
   out["sensor_maximum_raw"] = data.next()[0]
   out["sensor_maximum"] = value_convert(out["sensor_maximum_raw"], out["units"]["format"]["code"] != 3)
-  
+
   out["sensor_minimum_raw"] = data.next()[0]
   out["sensor_minimum"] = value_convert(out["sensor_minimum_raw"], out["units"]["format"]["code"] != 3)
 
   # 37-44 thresholds
   out["upper_non-recoverable_threshold_raw"] = data.next()[0]
+  out["upper_non-recoverable_threshold"] = value_convert(
+    out["upper_non-recoverable_threshold_raw"],
+    (
+      out["threshold_settable_mask"]["upper_non-recoverable"] |
+      out["threshold_readable_mask"]["upper_non-recoverable"] |
+      out["upper_threshold_reading_mask"]["non-recoverable"]
+    )
+  )
+
   out["upper_critical_threshold_raw"] = data.next()[0]
   out["upper_critical_threshold"] = value_convert(
     out["upper_critical_threshold_raw"],
@@ -129,10 +138,47 @@ def full_sensor_record_body_bytes(data):
       out["upper_threshold_reading_mask"]["critical"]
     )
   )
+
   out["upper_non-critical_threshold_raw"] = data.next()[0]
+  out["upper_non-critical_threshold"] = value_convert(
+    out["upper_non-critical_threshold_raw"],
+    (
+      out["threshold_settable_mask"]["upper_non-critical"] |
+      out["threshold_readable_mask"]["upper_non-critical"] |
+      out["upper_threshold_reading_mask"]["non-critical"]
+    )
+  )
+
   out["lower_non-recoverable_threshold_raw"] = data.next()[0]
+  out["lower_non-recoverable_threshold"] = value_convert(
+    out["lower_non-recoverable_threshold_raw"],
+    (
+      out["threshold_settable_mask"]["lower_non-recoverable"] |
+      out["threshold_readable_mask"]["lower_non-recoverable"] |
+      out["lower_threshold_reading_mask"]["non-recoverable"]
+    )
+  )
+
   out["lower_critical_threshold_raw"] = data.next()[0]
+  out["lower_critical_threshold"] = value_convert(
+    out["lower_critical_threshold_raw"],
+    (
+      out["threshold_settable_mask"]["lower_critical"] |
+      out["threshold_readable_mask"]["lower_critical"] |
+      out["lower_threshold_reading_mask"]["critical"]
+    )
+  )
+
   out["lower_non-critical_threshold_raw"] = data.next()[0]
+  out["lower_non-critical_threshold"] = value_convert(
+    out["lower_non-critical_threshold_raw"],
+    (
+      out["threshold_settable_mask"]["lower_non-critical"] |
+      out["threshold_readable_mask"]["lower_non-critical"] |
+      out["lower_threshold_reading_mask"]["non-critical"]
+    )
+  )
+
   out["positive-going_threshold_hysteresis_value"] = data.next()[0]
   out["negative-going_threshold_hysteresis_value"] = data.next()[0]
 
