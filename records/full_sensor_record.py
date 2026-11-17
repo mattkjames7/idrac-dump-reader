@@ -1,4 +1,4 @@
-from .common import int_to_bool_array, read_u16, signed_nibble
+from .common import int_to_bool_array, raw_converter, read_u16, signed_nibble
 from .decode_device_id import decode_device_id
 from .devices import entity_id_codes
 from .events import event_reading_type
@@ -11,7 +11,6 @@ from .sensors import (
   sensor_threashold_reading_masks,
   sensor_type
 )
-
 
 def full_sensor_record_body_bytes(data):
 
@@ -46,7 +45,7 @@ def full_sensor_record_body_bytes(data):
     **event_reading_type(value)
   }
 
-  # 15 - 20 
+  # 15 - 20
   is_threshold_based = out["reading_type"]["class"] == "threshold"
   out.update(sensor_threashold_reading_masks(data, is_threshold_based))
 
@@ -88,6 +87,14 @@ def full_sensor_record_body_bytes(data):
   out["r_exp"] = signed_nibble(value >> 4)
   out["b_exp"] = signed_nibble(value)
 
+  value_convert = raw_converter(
+    out["m"],
+    out["b"],
+    out["b_exp"],
+    out["r_exp"],
+    out["units"]["format"]["name"]
+  )
+
   # 31 - analog characteristics
   value = data.next()[0]
   out["has_normal_min"] = bool((value & 0b00000100) >> 2)
@@ -98,6 +105,9 @@ def full_sensor_record_body_bytes(data):
   out["nominal_reading_raw"] = data.next()[0]
   out["normal_maximum_raw"] = data.next()[0]
   out["normal_minimum_raw"] = data.next()[0]
+  if out["has_nominal_reading"]:
+    out["nominal_reading"] = value_convert(out["nominal_reading_raw"])
+
 
   # 35-36 - sensor range
   out["sensor_maximum_raw"] = data.next()[0]

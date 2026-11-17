@@ -208,7 +208,7 @@ def get_sensor_units(values, compact=False):
     out["units"]["format"] = {
       "code": format_value,
       "name": format_name
-    },
+    }
 
   out["base_unit"] = get_sensor_unit_type(values[1])
   out["modifier_unit"] = get_sensor_unit_type(values[2])

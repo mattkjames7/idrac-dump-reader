@@ -37,7 +37,24 @@ def decode_raw(raw, format_value):
   negative = raw & 0b1000_000
   if format_value == "unsigned":
     return raw
-  elif "1's complement"
+  elif "signed, 1's complement":
+    return -(~raw & 0b1111_1111) if negative else raw
+  elif "signed, 2's complement":
+    return raw - 256 if raw >= 128 else raw
+
+  raise ValueError("This shouldn't really happen")
 
 
 def raw_to_real_value(raw, M, B, B_exp, R_exp, format_value):
+
+  x = decode_raw(raw, format_value)
+
+  return (M * x + B * (10**B_exp)) * (10**R_exp)
+
+
+def raw_converter(M, B, B_exp, R_exp, format_value):
+
+  def convert(raw):
+    return raw_to_real_value(raw, M, B, B_exp, R_exp, format_value)
+
+  return convert
