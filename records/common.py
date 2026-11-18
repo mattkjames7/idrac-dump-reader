@@ -37,9 +37,9 @@ def decode_raw(raw, format_value):
   negative = raw & 0b1000_000
   if format_value == "unsigned":
     return raw
-  elif "signed, 1's complement":
+  elif format_value == "signed, 1's complement":
     return -(~raw & 0b1111_1111) if negative else raw
-  elif "signed, 2's complement":
+  elif format_value == "signed, 2's complement":
     return raw - 256 if raw >= 128 else raw
 
   raise ValueError("This shouldn't really happen")
@@ -61,3 +61,7 @@ def raw_converter(M, B, B_exp, R_exp, format_value):
       return None
 
   return convert
+
+
+def raw_hysteresis_converter(raw, M, R_exp):
+  return raw * M * (10**R_exp)

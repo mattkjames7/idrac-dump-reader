@@ -1,4 +1,4 @@
-from .common import int_to_bool_array, raw_converter, read_u16, signed_nibble
+from .common import int_to_bool_array, raw_converter, raw_hysteresis_converter, read_u16, signed_nibble
 from .decode_device_id import decode_device_id
 from .devices import entity_id_codes
 from .events import event_reading_type
@@ -179,8 +179,20 @@ def full_sensor_record_body_bytes(data):
     )
   )
 
-  out["positive-going_threshold_hysteresis_value"] = data.next()[0]
-  out["negative-going_threshold_hysteresis_value"] = data.next()[0]
+  out["positive-going_threshold_hysteresis_value_raw"] = data.next()[0]
+  out["negative-going_threshold_hysteresis_value_raw"] = data.next()[0]
+  if out["capabilities"]["hysteresis"]["supported"]:
+    out["positive-going_threshold_hysteresis_value"] = raw_hysteresis_converter(
+      out["positive-going_threshold_hysteresis_value_raw"],
+      out["m"],
+      out["r_exp"]
+    )
+    out["negative-going_threshold_hysteresis_value"] = raw_hysteresis_converter(
+      out["negative-going_threshold_hysteresis_value_raw"],
+      out["m"],
+      out["r_exp"]
+    )
+
 
   #  45,46 - reserved
   out["reserved"] = data.next(2)
