@@ -1,3 +1,5 @@
+import math
+
 from .common import int_to_bool_array, read_u16
 
 
@@ -227,7 +229,7 @@ def get_sensor_capabilities(value, compact=False):
   }
   thresh_value = (value & 0b00001100) >> 2
   threshold = {
-    "supported": thresh_value not in (0,2) if compact else (0,),
+    "supported": thresh_value not in ((0,2) if compact else (0,)),
     "readable": thresh_value in ((1,) if compact else (1, 2)),
     "settable": (thresh_value == 2) & (compact == False),
     "fixed": thresh_value == 3
@@ -318,6 +320,32 @@ def get_linearization(value):
   return linearization
 
 
+LINEARIZATION_FUNCTION = {
+  "linear": lambda x : x ,
+  "ln": lambda x : math.log(x),
+  "log10": lambda x : math.log10(x),
+  "log2": lambda x : math.log2(x),
+  "exp": lambda x : math.exp(x),
+  "exp10": lambda x : 10**x,
+  "exp2": lambda x : math.exp2(x),
+  "reciprocal": lambda x : 1/x,
+  "square": lambda x : x*x,
+  "cube": lambda x : math.pow(x, 3),
+  "sqrt": lambda x : math.sqrt(x),
+  "cube_root": lambda x : math.pow(x, 1.0 / 3.0),
+}
+
+def apply_linearization(value, linearization):
+
+  function = LINEARIZATION_FUNCTION.get(linearization)
+
+  # For OEM, reserved, non-linear we just don't attempt to scale these
+  if function is None:
+    return None
+  return function(value)
+
+
+
 def sensor_threashold_reading_masks(data, is_threshold_based):
   """Common to both compact and full sensor records"""
 
@@ -334,13 +362,13 @@ def sensor_threashold_reading_masks(data, is_threshold_based):
     mask_fields = [
       "upper_non-recoverable_high",
       "upper_non-recoverable_low",
-      "upper_crititcal_high",
+      "upper_critical_high",
       "upper_critical_low",
       "upper_non-critical_high",
       "upper_non-critical_low",
       "lower_non-recoverable_high",
       "lower_non-recoverable_low",
-      "lower_crititcal_high",
+      "lower_critical_high",
       "lower_critical_low",
       "lower_non-critical_high",
       "lower_non-critical_low"
@@ -361,13 +389,13 @@ def sensor_threashold_reading_masks(data, is_threshold_based):
     mask_fields = [
       "upper_non-recoverable_high",
       "upper_non-recoverable_low",
-      "upper_crititcal_high",
+      "upper_critical_high",
       "upper_critical_low",
       "upper_non-critical_high",
       "upper_non-critical_low",
       "lower_non-recoverable_high",
       "lower_non-recoverable_low",
-      "lower_crititcal_high",
+      "lower_critical_high",
       "lower_critical_low",
       "lower_non-critical_high",
       "lower_non-critical_low"
@@ -399,3 +427,45 @@ def sensor_threashold_reading_masks(data, is_threshold_based):
     out["read_mask"] = mask[1:]
 
   return out
+
+
+def decode_raw(raw, format_value):
+
+  negative = raw & 0b1000_000
+  if format_value == "unsigned":
+    return raw
+  elif format_value == "signed, 1's complement":
+    return -(~raw & 0b1111_1111) if negative else raw
+  elif format_value == "signed, 2's complement":
+    return raw - 256 if raw >= 128 else raw
+
+  raise ValueError("This shouldn't really happen")
+
+
+def raw_to_real_value(raw, M, B, B_exp, R_exp, format_value):
+
+  x = decode_raw(raw, format_value)
+
+  return (M * x + B * (10**B_exp)) * (10**R_exp)
+
+
+def raw_converter(M, B, B_exp, R_exp, format_value, linearization):
+
+  def convert(raw, convertable=True):
+    if convertable:
+      return apply_linearization(
+        raw_to_real_value(raw, M, B, B_exp, R_exp, format_value),
+        linearization
+      )
+    else:
+      return None
+
+  return convert
+
+
+def raw_hysteresis_converter(raw, M, R_exp, linearization):
+  return apply_linearization(raw * M * (10**R_exp), linearization)
+
+
+def raw_tolerance_converter(raw, M, R_exp, linearization):
+  return apply_linearization(((M * raw)/2) * (10**R_exp), linearization)
